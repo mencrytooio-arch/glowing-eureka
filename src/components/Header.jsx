@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 /**
  * Minimal Header Component
- * Clean navigation with logo support
+ * Clean navigation with logo support and warm colors
  */
 const Header = () => {
   const location = useLocation();
@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   return (
-    <header className="border-b border-neutral-200 bg-white sticky top-0 z-50 backdrop-blur-sm bg-white/95">
+    <header className="border-b border-warm-200 bg-white/95 backdrop-blur-sm sticky top-0 z-50">
       <nav className="container-custom py-6 sm:py-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -27,7 +27,7 @@ const Header = () => {
                 onError={() => setLogoError(true)}
               />
             ) : (
-              <span className="text-xl font-light tracking-tight">
+              <span className="text-xl font-light tracking-tight text-warm-900">
                 MenCryToo
               </span>
             )}
@@ -39,8 +39,8 @@ const Header = () => {
               to="/"
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/') 
-                  ? 'text-neutral-900 border-b border-neutral-900 pb-1' 
-                  : 'text-neutral-600 hover:text-neutral-900'
+                  ? 'text-warm-900 border-b border-warm-700 pb-1' 
+                  : 'text-warm-600 hover:text-warm-900'
               }`}
             >
               Home
@@ -49,8 +49,8 @@ const Header = () => {
               to="/shop"
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/shop') 
-                  ? 'text-neutral-900 border-b border-neutral-900 pb-1' 
-                  : 'text-neutral-600 hover:text-neutral-900'
+                  ? 'text-warm-900 border-b border-warm-700 pb-1' 
+                  : 'text-warm-600 hover:text-warm-900'
               }`}
             >
               Shop
@@ -59,8 +59,8 @@ const Header = () => {
               to="/about"
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/about') 
-                  ? 'text-neutral-900 border-b border-neutral-900 pb-1' 
-                  : 'text-neutral-600 hover:text-neutral-900'
+                  ? 'text-warm-900 border-b border-warm-700 pb-1' 
+                  : 'text-warm-600 hover:text-warm-900'
               }`}
             >
               About
@@ -69,8 +69,8 @@ const Header = () => {
               to="/how-we-work"
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/how-we-work') 
-                  ? 'text-neutral-900 border-b border-neutral-900 pb-1' 
-                  : 'text-neutral-600 hover:text-neutral-900'
+                  ? 'text-warm-900 border-b border-warm-700 pb-1' 
+                  : 'text-warm-600 hover:text-warm-900'
               }`}
             >
               How We Work

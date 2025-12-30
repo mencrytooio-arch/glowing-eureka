@@ -1,53 +1,57 @@
 /**
  * How We Work Page
- * Financial transparency and support structure - verbatim content
+ * Financial transparency with soft color sections
  */
 const HowWeWork = () => {
   return (
     <main className="min-h-screen">
-      <section className="container-custom py-16 sm:py-24">
-        <div className="max-w-4xl mx-auto">
-          {/* Page Header */}
-          <div className="mb-16 sm:mb-24">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-neutral-900 mb-6">
+      {/* Header */}
+      <section className="bg-white section-spacing border-b border-warm-200">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-warm-900 mb-6">
               How We Work
             </h1>
           </div>
+        </div>
+      </section>
 
-          <div className="space-y-20 sm:space-y-24">
-            {/* The Financials Section */}
+      {/* The Financials Section */}
+      <section className="bg-warm-50 section-spacing">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-warm-900 mb-12">
+              The Financials
+            </h2>
+
             <div className="space-y-16">
-              <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-neutral-900">
-                The Financials
-              </h2>
-
               {/* Transparency */}
               <div className="space-y-6">
-                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-neutral-900">
+                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-warm-800">
                   Transparency
                 </h3>
-                <div className="space-y-4 text-body text-lg sm:text-xl leading-relaxed">
+                <div className="prose-content text-body space-y-5">
                   <p>
                     Full financial transparency is key for our concept to succeed.
                   </p>
                   <p>
                     Everything from manufacturing costs to wages will be made publicly available to view at anytime.
                   </p>
-                  <p>
+                  <p className="text-warm-700">
                     Tracking through this link.
                   </p>
                 </div>
               </div>
 
-              {/* Section Divider */}
-              <div className="border-t border-neutral-200"></div>
+              {/* Divider */}
+              <div className="border-t border-warm-200"></div>
 
               {/* Income */}
               <div className="space-y-6">
-                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-neutral-900">
+                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-warm-800">
                   Income
                 </h3>
-                <div className="space-y-4 text-body text-lg sm:text-xl leading-relaxed">
+                <div className="prose-content text-body space-y-5">
                   <p>
                     The primary source of income will be through the clothing sales.
                   </p>
@@ -60,15 +64,15 @@ const HowWeWork = () => {
                 </div>
               </div>
 
-              {/* Section Divider */}
-              <div className="border-t border-neutral-200"></div>
+              {/* Divider */}
+              <div className="border-t border-warm-200"></div>
 
               {/* Expenses */}
               <div className="space-y-6">
-                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-neutral-900">
+                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-warm-800">
                   Expenses
                 </h3>
-                <div className="space-y-4 text-body text-lg sm:text-xl leading-relaxed">
+                <div className="prose-content text-body space-y-5">
                   <p>
                     As with running any business comes costs.
                   </p>
@@ -81,35 +85,38 @@ const HowWeWork = () => {
                   <p>
                     Anything additional will be used to cover counselling packages for those in need of the support.
                   </p>
-                  <p>
+                  <p className="font-light text-warm-800">
                     With each package allowing for 25 sessions of paid counselling, leaving the estimated cost of £3000 per package.
                   </p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Section Divider */}
-            <div className="border-t border-neutral-300"></div>
+      {/* Our Support Section */}
+      <section className="bg-white section-spacing">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-warm-900 mb-12">
+              Our Support
+            </h2>
 
-            {/* Our Support Section */}
             <div className="space-y-16">
-              <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-neutral-900">
-                Our Support
-              </h2>
-
               {/* Counselling Package */}
               <div className="space-y-6">
-                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-neutral-900">
+                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-warm-800">
                   Counselling Package
                 </h3>
-                <div className="space-y-4 text-body text-lg sm:text-xl leading-relaxed">
+                <div className="prose-content text-body space-y-5">
                   <p>
                     Each counselling block will consist of up to 25 sessions of paid counselling.
                   </p>
                   <p>
                     Estimating that each 50 minute session of virtual counselling will cost £100 (GBP) per session.
                   </p>
-                  <p>
+                  <p className="font-light text-warm-800">
                     The amount needed per person totals £3000.
                   </p>
                   <p>
@@ -124,15 +131,15 @@ const HowWeWork = () => {
                 </div>
               </div>
 
-              {/* Section Divider */}
-              <div className="border-t border-neutral-200"></div>
+              {/* Divider */}
+              <div className="border-t border-warm-200"></div>
 
               {/* Intake */}
               <div className="space-y-6">
-                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-neutral-900">
+                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-warm-800">
                   Intake
                 </h3>
-                <div className="space-y-4 text-body text-lg sm:text-xl leading-relaxed">
+                <div className="prose-content text-body space-y-5">
                   <p>
                     Intake will be done on a first come, first serve basis — as we grow and become more experienced, this is open to change.
                   </p>
@@ -145,15 +152,15 @@ const HowWeWork = () => {
                 </div>
               </div>
 
-              {/* Section Divider */}
-              <div className="border-t border-neutral-200"></div>
+              {/* Divider */}
+              <div className="border-t border-warm-200"></div>
 
               {/* Our Counsellors */}
               <div className="space-y-6">
-                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-neutral-900">
+                <h3 className="text-xl sm:text-2xl font-light tracking-tight text-warm-800">
                   Our Counsellors
                 </h3>
-                <div className="space-y-4 text-body text-lg sm:text-xl leading-relaxed">
+                <div className="prose-content text-body space-y-5">
                   <p>
                     Each of our partnered counsellors will be thoroughly vetted.
                   </p>
