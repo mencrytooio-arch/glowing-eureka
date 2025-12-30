@@ -1,0 +1,23 @@
+==========================================
+HERO IMAGE SETUP INSTRUCTIONS
+==========================================
+
+To add your hero image:
+
+1. Place your image file in this 'public' folder
+2. Name it exactly: hero-image.jpg
+   (or hero-image.png / hero-image.webp if using those formats)
+
+3. The image will automatically appear as the background
+   of the hero section on your website
+
+RECOMMENDED SPECIFICATIONS:
+- Format: JPG, PNG, or WebP
+- Size: 1920x1080px or larger (wide format works best)
+- File size: Under 500KB for fast loading
+
+If the image is not found, the hero will display a gradient 
+background as a fallback.
+
+==========================================
+
