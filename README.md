@@ -1,40 +1,63 @@
 # MenCryToo Website
 
-A minimalistic, modern e-commerce website selling authentic clothing for men. Built with React, Vite, and Tailwind CSS, optimized for Netlify deployment.
+A minimalistic, purpose-driven clothing brand website. Every purchase funds counselling sessions for men in need. Built with React, Vite, Tailwind CSS, and React Router, optimized for Netlify deployment.
 
 ## 🚀 Tech Stack
 
 - **React 18** - Modern UI library
+- **React Router** - Client-side routing
 - **Vite** - Fast build tool and development server
 - **Tailwind CSS** - Utility-first CSS framework
 - **Netlify** - Static site hosting
+
+## 🎨 Design Philosophy
+
+The website embraces minimalism with:
+- **Extremely minimal layout** with generous white space
+- **Neutral color palette** (black, white, soft greys)
+- **Clean sans-serif typography** with light font weights
+- **Subtle animations** and smooth transitions
+- **Mobile-first, fully responsive** design
+- **Calm, human, honest tone** - not corporate or charity-like
 
 ## 📁 Project Structure
 
 ```
 MenCryTooWeb/
-├── public/               # Static assets
-│   ├── products/         # Product images folder
-│   └── hero-image.jpg    # Hero section background image (add your image here)
+├── public/                  # Static assets
+│   ├── logo.svg            # Logo file (add your logo here)
+│   ├── hero.jpg            # Hero image for home page (or hero-image.avif)
+│   └── products/           # Product images folder
+│       ├── product-1.jpg
+│       ├── product-2.jpg
+│       └── ...
 ├── src/
-│   ├── components/       # Reusable React components
-│   │   ├── Hero.jsx      # Hero section with background image
-│   │   ├── Section.jsx   # Section wrapper component
-│   │   ├── ProductCard.jsx # Product card component
-│   │   ├── Card.jsx      # Card component
-│   │   ├── CTA.jsx       # Call-to-action component
-│   │   └── Footer.jsx    # Footer component
-│   ├── App.jsx           # Main application component
-│   ├── main.jsx          # Application entry point
-│   └── index.css         # Global styles and Tailwind imports
-├── index.html            # HTML template
-├── package.json          # Dependencies and scripts
-├── vite.config.js        # Vite configuration
-├── tailwind.config.js    # Tailwind CSS configuration
-├── postcss.config.js     # PostCSS configuration
-├── netlify.toml          # Netlify deployment configuration
-└── README.md             # This file
+│   ├── components/         # Reusable React components
+│   │   ├── Header.jsx      # Navigation header with logo
+│   │   └── Footer.jsx      # Minimal footer
+│   ├── pages/              # Page components
+│   │   ├── Home.jsx        # Home page with hero section
+│   │   ├── Shop.jsx        # Shop page with product grid
+│   │   ├── About.jsx       # About Us page
+│   │   └── HowWeWork.jsx   # How We Work page
+│   ├── App.jsx             # Main application with routing
+│   ├── main.jsx            # Application entry point
+│   └── index.css           # Global styles and Tailwind imports
+├── index.html              # HTML template
+├── package.json            # Dependencies and scripts
+├── vite.config.js          # Vite configuration
+├── tailwind.config.js      # Tailwind CSS configuration
+├── postcss.config.js       # PostCSS configuration
+├── netlify.toml            # Netlify deployment configuration
+└── README.md               # This file
 ```
+
+## 📄 Pages
+
+1. **Home** - Hero section with image, headline, mission statement, and CTAs
+2. **Shop** - Minimal product grid with clean product cards
+3. **About** - Story-driven explanation of why MenCryToo exists
+4. **How We Work** - Clear breakdown of how profits fund counselling sessions
 
 ## 🛠️ Local Development
 
@@ -65,18 +88,56 @@ MenCryTooWeb/
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build locally
 
-## 🎨 Design Features
+## 🖼️ Adding Assets
 
-- **Clean, modern aesthetic** with neutral color palette
-- **Professional yet emotionally intelligent** design
-- **Minimal color scheme** (neutral tones + indigo accent)
-- **Smooth transitions and hover effects** for better UX
-- **Fully responsive** - mobile-first approach
-- **Optimized performance** for fast loading
+### Logo
+
+1. Place your logo file in the `public` folder
+2. Name it: `logo.svg` (recommended) or `.png`, `.jpg`, `.webp`
+3. The logo will appear in the header/navigation
+4. If no logo is found, "MenCryToo" text will be displayed as fallback
+
+### Hero Image
+
+1. Place your hero image in the `public` folder
+2. Name it: `hero.jpg` (or `.png`, `.webp`, or use existing `hero-image.avif`)
+3. Recommended size: 1920x1080px or larger
+4. The image appears as a subtle background on the home page hero section
+
+### Product Images
+
+1. Place product images in `public/products/` folder
+2. Name them: `product-1.jpg`, `product-2.jpg`, etc.
+3. Recommended size: 1200x1200px (square format)
+4. If images are not found, placeholder backgrounds will be displayed
+
+See `public/ASSETS-README.md` for detailed asset setup instructions.
 
 ## 🌐 Netlify Deployment
 
-### Option 1: Deploy via Netlify CLI
+### Option 1: Deploy via GitHub (Recommended)
+
+1. **Push your code to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Your commit message"
+   git push
+   ```
+
+2. **Connect to Netlify:**
+   - Go to [Netlify](https://www.netlify.com/)
+   - Click "Add new site" → "Import an existing project"
+   - Select your GitHub repository
+   - Netlify will auto-detect the settings from `netlify.toml`:
+     - Build command: `npm run build`
+     - Publish directory: `dist`
+   - Click "Deploy site"
+
+3. **Automatic deployments:**
+   - Every push to your main branch will trigger a new deployment
+   - Netlify provides a preview URL for each pull request
+
+### Option 2: Deploy via Netlify CLI
 
 1. **Install Netlify CLI globally:**
    ```bash
@@ -92,30 +153,6 @@ MenCryTooWeb/
    ```bash
    netlify deploy --prod
    ```
-
-### Option 2: Deploy via GitHub (Recommended)
-
-1. **Push your code to GitHub:**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin <your-github-repo-url>
-   git push -u origin main
-   ```
-
-2. **Connect to Netlify:**
-   - Go to [Netlify](https://www.netlify.com/)
-   - Click "Add new site" → "Import an existing project"
-   - Select your GitHub repository
-   - Netlify will auto-detect the settings from `netlify.toml`:
-     - Build command: `npm run build`
-     - Publish directory: `dist`
-   - Click "Deploy site"
-
-3. **Automatic deployments:**
-   - Every push to your main branch will trigger a new deployment
-   - Netlify provides a preview URL for each pull request
 
 ### Option 3: Drag & Drop Deployment
 
@@ -134,67 +171,32 @@ MenCryTooWeb/
 The `netlify.toml` file is already configured with:
 - Build command: `npm run build`
 - Publish directory: `dist`
-- Redirect rules for single-page application routing
+- Redirect rules for single-page application routing (React Router)
 
-## 📝 Site Sections
+## 🎯 Brand Concept
 
-1. **Hero Section** - Main landing area with hero image background, site title, and call-to-action buttons
-2. **Products Section** - Showcases 4 clothing products (Tee, Hoodie, Crewneck, Long Sleeve)
-3. **About / Story Section** - Information about the MenCryToo brand and mission
-4. **Call-to-Action** - Encouraging users to shop the collection
-5. **Footer** - Footer with links, contact information, and copyright
+MenCryToo is a purpose-driven clothing company where **100% of profits fund counselling sessions for men in need**. The website embodies:
 
-## 🖼️ Adding Images
+- **Quiet confidence** - Not loud or attention-seeking
+- **Emotional honesty** - Authentic and genuine
+- **Minimal but meaningful** - Every element has purpose
+- **Safe space** - Not a sales funnel, but a welcoming environment
 
-### Hero Image
+## 🔮 Future Enhancements
 
-1. Place your hero image in the `public` folder
-2. Name it: `hero-image.jpg` (or `.png`, `.webp`)
-3. Recommended size: 1920x1080px or larger
-4. The image will automatically appear as the hero background
-
-### Product Images
-
-1. Add product images to `public/products/` folder:
-   - `tee-1.jpg` - Emotional Honesty Tee
-   - `hoodie-1.jpg` - Strength in Vulnerability Hoodie
-   - `crewneck-1.jpg` - Authentic Self Crewneck
-   - `longsleeve-1.jpg` - Feel It All Long Sleeve
-2. Recommended size: 800x800px (square format)
-3. If images are not found, placeholders will be displayed
-
-See `public/README-IMAGES.md` for detailed image setup instructions.
-
-## 🔮 Future Improvements
-
-Here are some suggestions for enhancing the e-commerce site:
-
-- **Shopping Cart** - Add a shopping cart functionality
-- **Payment Integration** - Integrate Stripe or PayPal for checkout
-- **Product Pages** - Create individual product detail pages
-- **Product Variants** - Add size and color options
-- **Inventory Management** - Connect to a backend for stock tracking
-- **Customer Reviews** - Add product reviews and ratings
-- **Newsletter Signup** - Collect emails for product updates and promotions
-- **User Accounts** - Add user registration and login
-- **Order Tracking** - Implement order tracking functionality
-- **Wishlist** - Allow users to save favorite products
-- **Search & Filters** - Add product search and filtering
-- **Analytics** - Integrate Google Analytics or Plausible Analytics
-- **SEO Optimization** - Improve meta tags, Open Graph, and structured data
-- **Performance** - Add image optimization and lazy loading
-- **Accessibility** - Enhance ARIA labels and keyboard navigation
+- Shopping cart and checkout functionality
+- Product detail pages
+- Blog or journal section
+- Newsletter signup
+- Impact stories/testimonials
+- Quarterly impact reports
+- Social media integration
+- Analytics integration
 
 ## 📄 License
 
 This project is open source and available for personal or commercial use.
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
 ---
 
-Built with ❤️ for MenCryToo
-
-
+Built with ❤️ for MenCryToo - Where every purchase funds a counselling session for a man in need.
