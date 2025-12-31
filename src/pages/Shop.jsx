@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+
 /**
  * Shop Page
- * Minimal product grid with gentle contrast and warm colors
+ * Product grid with brand colors
  */
 
 const products = [
@@ -32,28 +34,29 @@ const products = [
 
 const Shop = () => {
   return (
-    <main className="min-h-screen">
-      <section className="bg-white section-spacing">
+    <main className="min-h-screen bg-brand-light">
+      <section className="section-spacing">
         <div className="container-custom">
           {/* Page Header */}
-          <div className="text-center mb-20 sm:mb-24">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-warm-900 mb-5">
+          <div className="text-center mb-16 sm:mb-20">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-brand-primary mb-4">
               Shop
             </h1>
-            <p className="text-warm-700 font-light max-w-2xl mx-auto text-lg">
+            <p className="text-brand-secondary font-light max-w-2xl mx-auto text-lg">
               Every purchase directly funds counselling sessions for men in need.
             </p>
           </div>
 
-          {/* Product Grid - 4 products */}
+          {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
             {products.map((product) => (
-              <div
+              <Link
                 key={product.id}
-                className="group cursor-pointer"
+                to={`/shop/product/${product.id}`}
+                className="group cursor-pointer block"
               >
                 {/* Product Image */}
-                <div className="aspect-square bg-warm-100 mb-5 overflow-hidden transition-colors duration-300 group-hover:bg-warm-200">
+                <div className="aspect-square bg-white mb-4 overflow-hidden transition-colors duration-300 group-hover:bg-brand-light">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -66,15 +69,15 @@ const Shop = () => {
 
                 {/* Product Info */}
                 <div className="space-y-2">
-                  <h3 className="text-lg font-light text-warm-900 tracking-tight group-hover:text-warm-800 transition-colors">
+                  <h3 className="text-lg font-light text-brand-primary tracking-tight group-hover:text-brand-primary/80 transition-colors">
                     {product.name}
                   </h3>
-                  <p className="text-warm-700 font-light">£{product.price}</p>
-                  <button className="text-sm text-warm-800 font-light tracking-wide border-b border-transparent hover:border-warm-600 transition-colors duration-200 mt-2">
+                  <p className="text-brand-secondary font-light">£{product.price}</p>
+                  <span className="text-sm text-brand-primary font-light tracking-wide border-b border-transparent group-hover:border-brand-primary transition-colors duration-200 inline-block mt-2">
                     View
-                  </button>
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -7,26 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Warm, muted palette inspired by hero image
-        warm: {
-          50: '#faf9f7',   // Very light warm grey-beige
-          100: '#f5f3f0',  // Light warm background
-          200: '#e8e5e0',  // Soft warm grey for dividers
-          300: '#d4cfc7',  // Medium warm grey
-          400: '#a69f94',  // Muted warm accent
-          500: '#8b8276',  // Warm earth tone
-          600: '#6b6358',  // Deeper warm tone
-          700: '#4a443c',  // Dark warm tone
-          800: '#2d2924',  // Near black warm tone
-          900: '#1a1714',  // Deep warm black
+        // Brand color system
+        brand: {
+          primary: '#1E4357',      // Deep Slate Blue - Headings, CTAs, navigation accents
+          secondary: '#84999F',    // Muted Steel Blue - Subheadings, links, icons
+          dark: '#08202E',         // Midnight Blue-Black - Footer, dark sections
+          light: '#F3F5F5',        // Soft Off-White - Backgrounds, cards
         },
       },
       maxWidth: {
-        'prose': '65ch', // Optimal reading width
+        'prose': '65ch',
       },
       lineHeight: {
-        'relaxed': '1.75', // Better readability for body text
-        'comfortable': '1.85', // Extra comfortable for long-form
+        'relaxed': '1.75',
+        'comfortable': '1.85',
       },
     },
   },

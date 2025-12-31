@@ -1,36 +1,41 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
 
 /**
- * Minimal Header Component
- * Clean navigation with logo support and warm colors
+ * Header Component
+ * Clean navigation with logo image support
  */
 const Header = () => {
   const location = useLocation();
-  const [logoError, setLogoError] = useState(false);
   
   const isActive = (path) => {
     return location.pathname === path;
   };
 
   return (
-    <header className="border-b border-warm-200 bg-white/95 backdrop-blur-sm sticky top-0 z-50">
+    <header className="border-b border-brand-secondary/20 bg-white/95 backdrop-blur-sm sticky top-0 z-50">
       <nav className="container-custom py-6 sm:py-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            {!logoError ? (
-              <img
-                src="/logo.svg"
-                alt="MenCryToo"
-                className="h-8 sm:h-10 w-auto"
-                onError={() => setLogoError(true)}
-              />
-            ) : (
-              <span className="text-xl font-light tracking-tight text-warm-900">
-                MenCryToo
-              </span>
-            )}
+            <img
+              src="/logo.png"
+              alt="MenCryToo"
+              className="h-8 sm:h-10 w-auto"
+              onError={(e) => {
+                // Fallback to SVG or text if PNG doesn't exist
+                if (e.target.src.includes('/logo.png')) {
+                  e.target.src = '/logo.svg';
+                } else {
+                  e.target.style.display = 'none';
+                  if (!e.target.nextSibling) {
+                    const textLogo = document.createElement('span');
+                    textLogo.className = 'text-xl font-light tracking-tight text-brand-primary';
+                    textLogo.textContent = 'MenCryToo';
+                    e.target.parentElement.appendChild(textLogo);
+                  }
+                }
+              }}
+            />
           </Link>
 
           {/* Navigation Links */}
@@ -39,8 +44,8 @@ const Header = () => {
               to="/"
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/') 
-                  ? 'text-warm-900 border-b border-warm-700 pb-1' 
-                  : 'text-warm-600 hover:text-warm-900'
+                  ? 'text-brand-primary border-b border-brand-primary pb-1' 
+                  : 'text-brand-secondary hover:text-brand-primary'
               }`}
             >
               Home
@@ -49,8 +54,8 @@ const Header = () => {
               to="/shop"
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/shop') 
-                  ? 'text-warm-900 border-b border-warm-700 pb-1' 
-                  : 'text-warm-600 hover:text-warm-900'
+                  ? 'text-brand-primary border-b border-brand-primary pb-1' 
+                  : 'text-brand-secondary hover:text-brand-primary'
               }`}
             >
               Shop
@@ -59,8 +64,8 @@ const Header = () => {
               to="/about"
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/about') 
-                  ? 'text-warm-900 border-b border-warm-700 pb-1' 
-                  : 'text-warm-600 hover:text-warm-900'
+                  ? 'text-brand-primary border-b border-brand-primary pb-1' 
+                  : 'text-brand-secondary hover:text-brand-primary'
               }`}
             >
               About
@@ -69,8 +74,8 @@ const Header = () => {
               to="/how-we-work"
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/how-we-work') 
-                  ? 'text-warm-900 border-b border-warm-700 pb-1' 
-                  : 'text-warm-600 hover:text-warm-900'
+                  ? 'text-brand-primary border-b border-brand-primary pb-1' 
+                  : 'text-brand-secondary hover:text-brand-primary'
               }`}
             >
               How We Work
