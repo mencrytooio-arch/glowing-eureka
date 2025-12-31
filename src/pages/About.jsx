@@ -27,7 +27,7 @@ const About = () => {
       </section>
 
       {/* My Why Section */}
-      <section style={{ backgroundColor: 'var(--color-background)', paddingTop: '2rem', paddingBottom: '3rem' }}>
+      <section style={{ backgroundColor: 'var(--color-background)', paddingTop: '0.5rem', paddingBottom: '3rem' }}>
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-6" style={{ color: 'var(--color-text-primary)' }}>
