@@ -15,12 +15,12 @@ const Header = () => {
     <header className="backdrop-blur-sm sticky top-0 z-50 border-b" style={{ borderColor: 'var(--color-accent-secondary)' + '33', backgroundColor: 'rgba(255, 255, 255, 0.95)' }}>
       <nav className="container-custom py-6 sm:py-8">
         <div className="flex items-center justify-between">
-          {/* Logo - Transparent background */}
+          {/* Logo - Transparent background, increased size */}
           <Link to="/" className="flex items-center">
             <img
               src="/logo.png"
               alt="MenCryToo"
-              className="h-8 sm:h-10 w-auto"
+              className="h-12 sm:h-14 w-auto"
               style={{ backgroundColor: 'transparent' }}
               onError={(e) => {
                 if (e.target.src.includes('/logo.png')) {

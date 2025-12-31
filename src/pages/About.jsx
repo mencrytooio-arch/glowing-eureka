@@ -1,6 +1,6 @@
 /**
  * About Us Page
- * Will's story with brand colors
+ * Will's story with dividers, consistent spacing, and unified text color
  */
 const About = () => {
   return (
@@ -13,11 +13,12 @@ const About = () => {
               About Us
             </h1>
             
-            <div className="space-y-5">
+            <div className="space-y-4">
               <p className="text-2xl sm:text-3xl font-light leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
                 MenCryToo was created with a simple goal in mind.
               </p>
-              <p className="text-xl sm:text-2xl font-light leading-relaxed" style={{ color: 'var(--color-accent-secondary)' }}>
+              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33' }}></div>
+              <p className="text-xl sm:text-2xl font-light leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
                 To raise awareness and provide support for Men all over the world suffering with mental health issues.
               </p>
             </div>
@@ -32,16 +33,19 @@ const About = () => {
             <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-6" style={{ color: 'var(--color-text-primary)' }}>
               My Why?
             </h2>
-            <div className="prose-content text-body space-y-5">
+            <div className="prose-content space-y-3">
               <p style={{ color: 'var(--color-text-primary)' }}>
                 Growing up my Dad was my biggest inspiration and role model, watching him bring laughter, light and excitement to every room he walked in.
               </p>
+              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '0.75rem', marginBottom: '0.75rem' }}></div>
               <p style={{ color: 'var(--color-text-primary)' }}>
                 That all changed in 2017 when he lost his long battle with his mental health.
               </p>
+              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '0.75rem', marginBottom: '0.75rem' }}></div>
               <p style={{ color: 'var(--color-text-primary)' }}>
                 Seeing how he suffered day to day as well as the toll it took on his loved ones, I am always left with the regret that there was more I could have done.
               </p>
+              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '0.75rem', marginBottom: '0.75rem' }}></div>
               <p style={{ color: 'var(--color-text-primary)' }}>
                 Now living with the aftermath of his suicide and the trauma my Mum and Sister both live with to this day, I want to make a difference to the next family, community and individual so their story does not take the same turn.
               </p>
@@ -57,10 +61,11 @@ const About = () => {
             <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-6" style={{ color: 'var(--color-text-primary)' }}>
               How we plan to tackle such a task?
             </h2>
-            <div className="prose-content text-body space-y-5">
+            <div className="prose-content space-y-3">
               <p style={{ color: 'var(--color-text-primary)' }}>
                 By running a fully financially transparent company utilising the profits from clothing sales, collaborations and donations to fully fund comprehensive counselling packages for those in need. All while destroying the stigma associated with Men's mental health.
               </p>
+              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '0.75rem', marginBottom: '0.75rem' }}></div>
               <p style={{ color: 'var(--color-text-primary)' }}>
                 With a long and bumpy road ahead, we are going to need all the support we can get, it would be great to have you along for the journey!
               </p>
@@ -73,11 +78,11 @@ const About = () => {
       <section className="section-spacing" style={{ backgroundColor: 'var(--color-background)' }}>
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <div className="space-y-4 italic" style={{ color: 'var(--color-accent-secondary)' }}>
-              <p className="text-xl sm:text-2xl font-light leading-comfortable">
+            <div className="space-y-4 italic">
+              <p className="text-xl sm:text-2xl font-light leading-comfortable" style={{ color: 'var(--color-text-primary)' }}>
                 "Happiness can be found even in the darkest of times, if one only remembers to turn on the light."
               </p>
-              <p className="text-base sm:text-lg font-light not-italic" style={{ opacity: 0.8 }}>
+              <p className="text-base sm:text-lg font-light not-italic" style={{ color: 'var(--color-text-primary)' }}>
                 — Albus Dumbledore, Harry Potter and the Prisoner of Azkaban
               </p>
             </div>

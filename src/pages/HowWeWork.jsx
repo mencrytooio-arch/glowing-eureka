@@ -1,6 +1,6 @@
 /**
  * How We Work Page
- * Financial transparency with brand colors
+ * Financial transparency with unified text color and divider before Our Support
  */
 const HowWeWork = () => {
   return (
@@ -43,7 +43,7 @@ const HowWeWork = () => {
                   <p className="font-normal" style={{ color: 'var(--color-text-primary)' }}>
                     Everything from manufacturing costs to wages will be made publicly available to view at anytime.
                   </p>
-                  <p className="font-normal" style={{ color: 'var(--color-accent-secondary)' }}>
+                  <p className="font-normal" style={{ color: 'var(--color-text-primary)' }}>
                     Tracking through this link.
                   </p>
                 </div>
@@ -91,12 +91,15 @@ const HowWeWork = () => {
                   <p className="font-normal" style={{ color: 'var(--color-text-primary)' }}>
                     Anything additional will be used to cover counselling packages for those in need of the support.
                   </p>
-                  <p className="font-normal" style={{ color: 'var(--color-accent-primary)' }}>
+                  <p className="font-normal" style={{ color: 'var(--color-text-primary)' }}>
                     With each package allowing for 25 sessions of paid counselling, leaving the estimated cost of £3000 per package.
                   </p>
                 </div>
               </div>
             </div>
+
+            {/* Divider before Our Support */}
+            <div className="py-10" style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33' }}></div>
           </div>
         </div>
       </section>
@@ -122,7 +125,7 @@ const HowWeWork = () => {
                   <p className="font-normal" style={{ color: 'var(--color-text-primary)' }}>
                     Estimating that each 50 minute session of virtual counselling will cost £100 (GBP) per session.
                   </p>
-                  <p className="font-normal" style={{ color: 'var(--color-accent-primary)' }}>
+                  <p className="font-normal" style={{ color: 'var(--color-text-primary)' }}>
                     The amount needed per person totals £3000.
                   </p>
                   <p className="font-normal" style={{ color: 'var(--color-text-primary)' }}>

@@ -29,3 +29,4 @@ The logo appears in:
 - Height: 32px on mobile, 40px on desktop
 - Scales cleanly across all breakpoints
 
+

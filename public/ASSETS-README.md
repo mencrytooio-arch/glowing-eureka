@@ -36,3 +36,4 @@
 - SVG format is recommended for logos as it scales perfectly at any size
 
 
+

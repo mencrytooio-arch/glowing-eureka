@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 /**
  * Home Page
- * Hero section with transparent logo and brand colors
+ * Hero section with transparent logo and improved text legibility
  */
 const Home = () => {
   return (
@@ -31,12 +31,12 @@ const Home = () => {
         {/* Content */}
         <div className="relative z-10 container-custom py-20 sm:py-24">
           <div className="max-w-4xl mx-auto text-center space-y-10 sm:space-y-12">
-            {/* Logo - Transparent background, not clickable */}
+            {/* Logo - Transparent background, increased size, not clickable */}
             <div className="flex justify-center mb-4">
               <img
                 src="/logo.png"
                 alt="MenCryToo"
-                className="h-16 sm:h-20 lg:h-24 w-auto"
+                className="h-24 sm:h-28 lg:h-32 w-auto"
                 style={{ backgroundColor: 'transparent' }}
                 onError={(e) => {
                   if (e.target.src.includes('/logo.png')) {
@@ -48,8 +48,8 @@ const Home = () => {
               />
             </div>
 
-            {/* Supporting Line */}
-            <p className="text-lg sm:text-xl font-light" style={{ color: 'var(--color-accent-secondary)' }}>
+            {/* Supporting Line - Increased opacity for legibility */}
+            <p className="text-lg sm:text-xl font-light" style={{ color: 'var(--color-accent-secondary)', opacity: 0.9 }}>
               Wear the change. Every purchase funds counselling for men.
             </p>
 
@@ -103,8 +103,8 @@ const Home = () => {
               </Link>
             </div>
 
-            {/* Supporting Statement */}
-            <p className="text-sm sm:text-base font-light pt-2" style={{ color: 'var(--color-accent-secondary)' }}>
+            {/* Supporting Statement - Increased opacity for legibility */}
+            <p className="text-sm sm:text-base font-light pt-2" style={{ color: 'var(--color-text-primary)', opacity: 0.95 }}>
               Clothing with purpose. Transparency by design. Support where it's needed most.
             </p>
           </div>
