@@ -12,16 +12,16 @@ const Header = () => {
   };
 
   return (
-    <header className="backdrop-blur-sm sticky top-0 z-50 border-b" style={{ borderColor: 'var(--color-accent-secondary)' + '33', backgroundColor: 'rgba(255, 255, 255, 0.95)' }}>
-      <nav className="container-custom py-6 sm:py-8">
-        <div className="flex items-center justify-between">
+    <header className="backdrop-blur-sm sticky top-0 z-50 border-b" style={{ borderColor: 'var(--color-accent-secondary)' + '33', backgroundColor: 'rgba(255, 255, 255, 0.95)', margin: '0', padding: '0', lineHeight: '0' }}>
+      <nav className="container-custom py-0" style={{ marginTop: '0', marginBottom: '0', paddingTop: '0', paddingBottom: '0', lineHeight: '0' }}>
+        <div className="flex items-center justify-between" style={{ marginTop: '0', marginBottom: '0', paddingTop: '0', paddingBottom: '0', lineHeight: '0' }}>
           {/* Logo - Transparent background, 3x size */}
-          <Link to="/" className="flex items-center" style={{ padding: '0', margin: '0' }}>
+          <Link to="/" className="flex items-center" style={{ padding: '0', margin: '0', lineHeight: '0', paddingTop: '0', paddingBottom: '0', marginTop: '0', marginBottom: '0', display: 'flex', alignItems: 'center' }}>
             <img
               src="/logo.png"
               alt="MenCryToo"
               className="h-36 sm:h-42 w-auto"
-              style={{ backgroundColor: 'transparent', padding: '0', margin: '0', display: 'block' }}
+              style={{ backgroundColor: 'transparent', padding: '0', margin: '0', display: 'block', verticalAlign: 'middle', lineHeight: '0', transform: 'scale(0.75)' }}
               onError={(e) => {
                 if (e.target.src.includes('/logo.png')) {
                   e.target.src = '/logo.svg';
