@@ -4,17 +4,17 @@
  */
 const About = () => {
   return (
-    <main className="min-h-screen bg-brand-light">
+    <main className="min-h-screen bg-brand-background">
       {/* Introduction Section */}
       <section className="bg-white section-spacing">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-brand-primary mb-10">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-brand-neutral mb-10">
               About Us
             </h1>
             
             <div className="space-y-5">
-              <p className="text-2xl sm:text-3xl font-light text-brand-primary leading-relaxed">
+              <p className="text-2xl sm:text-3xl font-light text-brand-neutral leading-relaxed">
                 MenCryToo was created with a simple goal in mind.
               </p>
               <p className="text-xl sm:text-2xl font-light text-brand-secondary leading-relaxed">
@@ -26,10 +26,10 @@ const About = () => {
       </section>
 
       {/* My Why Section */}
-      <section className="bg-brand-light section-spacing">
+      <section className="bg-brand-background section-spacing">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-brand-primary mb-6">
+            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-brand-neutral mb-6">
               My Why?
             </h2>
             <div className="prose-content text-body space-y-5">
@@ -54,7 +54,7 @@ const About = () => {
       <section className="bg-white section-spacing">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-brand-primary mb-6">
+            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-brand-neutral mb-6">
               How we plan to tackle such a task?
             </h2>
             <div className="prose-content text-body space-y-5">
@@ -70,7 +70,7 @@ const About = () => {
       </section>
 
       {/* Quote Section */}
-      <section className="bg-brand-light section-spacing">
+      <section className="bg-brand-background section-spacing">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4 italic text-brand-secondary">

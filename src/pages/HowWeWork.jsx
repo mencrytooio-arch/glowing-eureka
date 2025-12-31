@@ -4,12 +4,12 @@
  */
 const HowWeWork = () => {
   return (
-    <main className="min-h-screen bg-brand-light">
+    <main className="min-h-screen bg-brand-background">
       {/* Header */}
       <section className="bg-white section-spacing border-b border-brand-secondary/20">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-brand-primary mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-brand-neutral mb-6">
               How We Work
             </h1>
           </div>
@@ -17,17 +17,17 @@ const HowWeWork = () => {
       </section>
 
       {/* The Financials Section */}
-      <section className="bg-brand-light section-spacing">
+      <section className="bg-brand-background section-spacing">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-brand-primary mb-10">
+            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-brand-neutral mb-10">
               The Financials
             </h2>
 
             <div className="space-y-12">
               {/* Transparency */}
               <div className="space-y-5">
-                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-primary">
+                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-neutral">
                   Transparency
                 </h3>
                 <div className="prose-content text-body space-y-4">
@@ -48,7 +48,7 @@ const HowWeWork = () => {
 
               {/* Income */}
               <div className="space-y-5">
-                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-primary">
+                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-neutral">
                   Income
                 </h3>
                 <div className="prose-content text-body space-y-4">
@@ -69,7 +69,7 @@ const HowWeWork = () => {
 
               {/* Expenses */}
               <div className="space-y-5">
-                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-primary">
+                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-neutral">
                   Expenses
                 </h3>
                 <div className="prose-content text-body space-y-4">
@@ -99,14 +99,14 @@ const HowWeWork = () => {
       <section className="bg-white section-spacing">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-brand-primary mb-10">
+            <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-brand-neutral mb-10">
               Our Support
             </h2>
 
             <div className="space-y-12">
               {/* Counselling Package */}
               <div className="space-y-5">
-                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-primary">
+                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-neutral">
                   Counselling Package
                 </h3>
                 <div className="prose-content text-body space-y-4">
@@ -136,7 +136,7 @@ const HowWeWork = () => {
 
               {/* Intake */}
               <div className="space-y-5">
-                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-primary">
+                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-neutral">
                   Intake
                 </h3>
                 <div className="prose-content text-body space-y-4">
@@ -157,7 +157,7 @@ const HowWeWork = () => {
 
               {/* Our Counsellors */}
               <div className="space-y-5">
-                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-primary">
+                <h3 className="text-xl sm:text-2xl font-normal tracking-tight text-brand-neutral">
                   Our Counsellors
                 </h3>
                 <div className="prose-content text-body space-y-4">

@@ -9,10 +9,11 @@ export default {
       colors: {
         // Brand color system
         brand: {
-          primary: '#1E4357',      // Deep Slate Blue - Headings, CTAs, navigation accents
-          secondary: '#84999F',    // Muted Steel Blue - Subheadings, links, icons
-          dark: '#08202E',         // Midnight Blue-Black - Footer, dark sections
-          light: '#F3F5F5',        // Soft Off-White - Backgrounds, cards
+          neutral: '#0E0E0E',      // Charcoal Black - Headings, body text, navigation
+          primary: '#1F4A5F',      // Deep Calm Blue - Primary CTAs, active states
+          secondary: '#7F97A0',    // Muted Blue-Grey - Subheadings, icons, dividers
+          background: '#F4F3F1',   // Warm Off-White - Page backgrounds
+          dark: '#0B1F2A',         // Ink Navy - Footer, dark sections
         },
       },
       maxWidth: {

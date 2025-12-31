@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 /**
  * Header Component
- * Clean navigation with logo image support
+ * Clean navigation with logo image
  */
 const Header = () => {
   const location = useLocation();
@@ -29,7 +29,7 @@ const Header = () => {
                   e.target.style.display = 'none';
                   if (!e.target.nextSibling) {
                     const textLogo = document.createElement('span');
-                    textLogo.className = 'text-xl font-light tracking-tight text-brand-primary';
+                    textLogo.className = 'text-xl font-light tracking-tight text-brand-neutral';
                     textLogo.textContent = 'MenCryToo';
                     e.target.parentElement.appendChild(textLogo);
                   }
@@ -45,7 +45,7 @@ const Header = () => {
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/') 
                   ? 'text-brand-primary border-b border-brand-primary pb-1' 
-                  : 'text-brand-secondary hover:text-brand-primary'
+                  : 'text-brand-neutral hover:text-brand-primary'
               }`}
             >
               Home
@@ -55,7 +55,7 @@ const Header = () => {
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/shop') 
                   ? 'text-brand-primary border-b border-brand-primary pb-1' 
-                  : 'text-brand-secondary hover:text-brand-primary'
+                  : 'text-brand-neutral hover:text-brand-primary'
               }`}
             >
               Shop
@@ -65,7 +65,7 @@ const Header = () => {
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/about') 
                   ? 'text-brand-primary border-b border-brand-primary pb-1' 
-                  : 'text-brand-secondary hover:text-brand-primary'
+                  : 'text-brand-neutral hover:text-brand-primary'
               }`}
             >
               About
@@ -75,7 +75,7 @@ const Header = () => {
               className={`text-sm font-light tracking-wide transition-colors duration-200 ${
                 isActive('/how-we-work') 
                   ? 'text-brand-primary border-b border-brand-primary pb-1' 
-                  : 'text-brand-secondary hover:text-brand-primary'
+                  : 'text-brand-neutral hover:text-brand-primary'
               }`}
             >
               How We Work

@@ -34,12 +34,12 @@ const products = [
 
 const Shop = () => {
   return (
-    <main className="min-h-screen bg-brand-light">
+    <main className="min-h-screen bg-brand-background">
       <section className="section-spacing">
         <div className="container-custom">
           {/* Page Header */}
           <div className="text-center mb-16 sm:mb-20">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-brand-primary mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-brand-neutral mb-4">
               Shop
             </h1>
             <p className="text-brand-secondary font-light max-w-2xl mx-auto text-lg">
@@ -56,7 +56,7 @@ const Shop = () => {
                 className="group cursor-pointer block"
               >
                 {/* Product Image */}
-                <div className="aspect-square bg-white mb-4 overflow-hidden transition-colors duration-300 group-hover:bg-brand-light">
+                <div className="aspect-square bg-white mb-4 overflow-hidden transition-colors duration-300 group-hover:bg-brand-background">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -69,7 +69,7 @@ const Shop = () => {
 
                 {/* Product Info */}
                 <div className="space-y-2">
-                  <h3 className="text-lg font-light text-brand-primary tracking-tight group-hover:text-brand-primary/80 transition-colors">
+                  <h3 className="text-lg font-light text-brand-neutral tracking-tight group-hover:text-brand-primary transition-colors">
                     {product.name}
                   </h3>
                   <p className="text-brand-secondary font-light">£{product.price}</p>

@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 /**
  * Home Page
- * Hero section with brand colors
+ * Hero section with logo image (not clickable) and brand colors
  */
 const Home = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-brand-light">
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-brand-background">
         {/* Hero Image Background */}
         <div className="absolute inset-0 z-0">
           <img
@@ -28,22 +28,33 @@ const Home = () => {
         {/* Content */}
         <div className="relative z-10 container-custom py-20 sm:py-24">
           <div className="max-w-4xl mx-auto text-center space-y-10 sm:space-y-12">
-            {/* Brand Name */}
-            <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight text-brand-primary">
-                MenCryToo
-              </h1>
-              <p className="text-lg sm:text-xl text-brand-secondary font-light">
-                Wear the change. Every purchase funds counselling for men.
-              </p>
+            {/* Logo - Not clickable, visual brand mark only */}
+            <div className="flex justify-center mb-4">
+              <img
+                src="/logo.png"
+                alt="MenCryToo"
+                className="h-16 sm:h-20 lg:h-24 w-auto"
+                onError={(e) => {
+                  if (e.target.src.includes('/logo.png')) {
+                    e.target.src = '/logo.svg';
+                  } else {
+                    e.target.style.display = 'none';
+                  }
+                }}
+              />
             </div>
+
+            {/* Supporting Line */}
+            <p className="text-lg sm:text-xl text-brand-secondary font-light">
+              Wear the change. Every purchase funds counselling for men.
+            </p>
 
             {/* Mission Statement */}
             <div className="max-w-3xl mx-auto space-y-5 bg-white/80 backdrop-blur-sm px-8 py-10 sm:px-12 sm:py-12 rounded-sm">
-              <p className="text-xl sm:text-2xl text-brand-dark font-light leading-relaxed">
+              <p className="text-xl sm:text-2xl text-brand-neutral font-light leading-relaxed">
                 MenCryToo exists to raise awareness and provide support for men all over the world who are suffering with mental health issues.
               </p>
-              <p className="text-lg sm:text-xl text-brand-dark/80 font-light leading-relaxed">
+              <p className="text-lg sm:text-xl text-brand-neutral/90 font-light leading-relaxed">
                 All profits from clothing sales are used to fund counselling sessions for those who need them most.
               </p>
             </div>
@@ -58,7 +69,7 @@ const Home = () => {
               </Link>
               <Link
                 to="/how-we-work"
-                className="px-8 py-3 border border-brand-primary text-brand-primary text-sm font-light tracking-wide hover:bg-brand-light transition-colors duration-200"
+                className="px-8 py-3 border border-brand-primary text-brand-primary text-sm font-light tracking-wide hover:bg-brand-background transition-colors duration-200"
               >
                 Learn How We Work
               </Link>
