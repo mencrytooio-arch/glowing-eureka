@@ -99,7 +99,7 @@ const HowWeWork = () => {
             </div>
 
             {/* Divider before Our Support */}
-            <div className="py-10" style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33' }}></div>
+            <div className="mt-12 mb-6" style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33' }}></div>
           </div>
         </div>
       </section>

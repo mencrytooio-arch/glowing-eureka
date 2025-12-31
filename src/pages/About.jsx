@@ -13,11 +13,11 @@ const About = () => {
               About Us
             </h1>
             
-            <div className="space-y-4">
+            <div className="space-y-2">
               <p className="text-2xl sm:text-3xl font-light leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
                 MenCryToo was created with a simple goal in mind.
               </p>
-              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33' }}></div>
+              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '1.25rem', marginBottom: '1.25rem' }}></div>
               <p className="text-xl sm:text-2xl font-light leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
                 To raise awareness and provide support for Men all over the world suffering with mental health issues.
               </p>
@@ -33,19 +33,19 @@ const About = () => {
             <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-6" style={{ color: 'var(--color-text-primary)' }}>
               My Why?
             </h2>
-            <div className="prose-content space-y-3">
+            <div className="prose-content space-y-2">
               <p style={{ color: 'var(--color-text-primary)' }}>
                 Growing up my Dad was my biggest inspiration and role model, watching him bring laughter, light and excitement to every room he walked in.
               </p>
-              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '0.75rem', marginBottom: '0.75rem' }}></div>
+              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '1.25rem', marginBottom: '1.25rem' }}></div>
               <p style={{ color: 'var(--color-text-primary)' }}>
                 That all changed in 2017 when he lost his long battle with his mental health.
               </p>
-              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '0.75rem', marginBottom: '0.75rem' }}></div>
+              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '1.25rem', marginBottom: '1.25rem' }}></div>
               <p style={{ color: 'var(--color-text-primary)' }}>
                 Seeing how he suffered day to day as well as the toll it took on his loved ones, I am always left with the regret that there was more I could have done.
               </p>
-              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '0.75rem', marginBottom: '0.75rem' }}></div>
+              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '1.25rem', marginBottom: '1.25rem' }}></div>
               <p style={{ color: 'var(--color-text-primary)' }}>
                 Now living with the aftermath of his suicide and the trauma my Mum and Sister both live with to this day, I want to make a difference to the next family, community and individual so their story does not take the same turn.
               </p>
@@ -61,11 +61,11 @@ const About = () => {
             <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-6" style={{ color: 'var(--color-text-primary)' }}>
               How we plan to tackle such a task?
             </h2>
-            <div className="prose-content space-y-3">
+            <div className="prose-content space-y-2">
               <p style={{ color: 'var(--color-text-primary)' }}>
                 By running a fully financially transparent company utilising the profits from clothing sales, collaborations and donations to fully fund comprehensive counselling packages for those in need. All while destroying the stigma associated with Men's mental health.
               </p>
-              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '0.75rem', marginBottom: '0.75rem' }}></div>
+              <div style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33', marginTop: '1.25rem', marginBottom: '1.25rem' }}></div>
               <p style={{ color: 'var(--color-text-primary)' }}>
                 With a long and bumpy road ahead, we are going to need all the support we can get, it would be great to have you along for the journey!
               </p>
