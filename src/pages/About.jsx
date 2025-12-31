@@ -27,7 +27,7 @@ const About = () => {
       </section>
 
       {/* My Why Section */}
-      <section style={{ backgroundColor: 'var(--color-background)', paddingTop: '5rem', paddingBottom: '3rem' }}>
+      <section style={{ backgroundColor: 'var(--color-background)', paddingTop: '3.5rem', paddingBottom: '3rem' }}>
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-6" style={{ color: 'var(--color-text-primary)' }}>
@@ -75,7 +75,7 @@ const About = () => {
       </section>
 
       {/* Quote Section */}
-      <section style={{ backgroundColor: 'var(--color-background)', paddingTop: '1.5rem', paddingBottom: '3rem' }}>
+      <section style={{ backgroundColor: 'var(--color-background)', paddingTop: '0rem', paddingBottom: '3rem' }}>
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4 italic">

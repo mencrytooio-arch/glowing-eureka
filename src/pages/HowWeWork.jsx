@@ -107,7 +107,7 @@ const HowWeWork = () => {
       </section>
 
       {/* Our Support Section */}
-      <section style={{ backgroundColor: 'var(--color-background)', paddingTop: '5rem', paddingBottom: '3rem' }}>
+      <section style={{ backgroundColor: 'var(--color-background)', paddingTop: '3.5rem', paddingBottom: '3rem' }}>
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-light tracking-tight mb-10" style={{ color: 'var(--color-text-primary)' }}>
