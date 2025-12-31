@@ -34,15 +34,15 @@ const products = [
 
 const Shop = () => {
   return (
-    <main className="min-h-screen bg-brand-background">
+    <main className="min-h-screen" style={{ backgroundColor: 'var(--color-background)' }}>
       <section className="section-spacing">
         <div className="container-custom">
           {/* Page Header */}
           <div className="text-center mb-16 sm:mb-20">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-brand-neutral mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4" style={{ color: 'var(--color-text-primary)' }}>
               Shop
             </h1>
-            <p className="text-brand-secondary font-light max-w-2xl mx-auto text-lg">
+            <p className="font-light max-w-2xl mx-auto text-lg" style={{ color: 'var(--color-accent-secondary)' }}>
               Every purchase directly funds counselling sessions for men in need.
             </p>
           </div>
@@ -56,7 +56,16 @@ const Shop = () => {
                 className="group cursor-pointer block"
               >
                 {/* Product Image */}
-                <div className="aspect-square bg-white mb-4 overflow-hidden transition-colors duration-300 group-hover:bg-brand-background">
+                <div 
+                  className="aspect-square mb-4 overflow-hidden transition-colors duration-300"
+                  style={{ backgroundColor: 'var(--color-background)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--color-background)';
+                  }}
+                >
                   <img
                     src={product.image}
                     alt={product.name}
@@ -69,11 +78,29 @@ const Shop = () => {
 
                 {/* Product Info */}
                 <div className="space-y-2">
-                  <h3 className="text-lg font-light text-brand-neutral tracking-tight group-hover:text-brand-primary transition-colors">
+                  <h3 
+                    className="text-lg font-light tracking-tight transition-colors"
+                    style={{ color: 'var(--color-text-primary)' }}
+                    onMouseEnter={(e) => {
+                      e.target.style.color = 'var(--color-accent-primary)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.color = 'var(--color-text-primary)';
+                    }}
+                  >
                     {product.name}
                   </h3>
-                  <p className="text-brand-secondary font-light">£{product.price}</p>
-                  <span className="text-sm text-brand-primary font-light tracking-wide border-b border-transparent group-hover:border-brand-primary transition-colors duration-200 inline-block mt-2">
+                  <p className="font-light" style={{ color: 'var(--color-accent-secondary)' }}>£{product.price}</p>
+                  <span 
+                    className="text-sm font-light tracking-wide border-b border-transparent transition-colors duration-200 inline-block mt-2"
+                    style={{ color: 'var(--color-accent-primary)' }}
+                    onMouseEnter={(e) => {
+                      e.target.style.borderColor = 'var(--color-accent-primary)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.borderColor = 'transparent';
+                    }}
+                  >
                     View
                   </span>
                 </div>

@@ -44,11 +44,11 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <main className="min-h-screen bg-brand-background">
+      <main className="min-h-screen" style={{ backgroundColor: 'var(--color-background)' }}>
         <section className="container-custom section-spacing">
           <div className="text-center">
-            <h1 className="text-2xl font-light text-brand-neutral mb-4">Product not found</h1>
-            <Link to="/shop" className="text-brand-secondary hover:text-brand-primary underline">
+            <h1 className="text-2xl font-light mb-4" style={{ color: 'var(--color-text-primary)' }}>Product not found</h1>
+            <Link to="/shop" className="underline" style={{ color: 'var(--color-accent-secondary)' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-accent-primary)'} onMouseLeave={(e) => e.target.style.color = 'var(--color-accent-secondary)'}>
               Return to Shop
             </Link>
           </div>
@@ -58,21 +58,24 @@ const ProductDetail = () => {
   }
 
   return (
-    <main className="min-h-screen bg-brand-background">
-      <section className="bg-white section-spacing">
+    <main className="min-h-screen" style={{ backgroundColor: 'var(--color-background)' }}>
+      <section className="section-spacing" style={{ backgroundColor: 'var(--color-background)' }}>
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             {/* Back link */}
             <Link 
               to="/shop" 
-              className="inline-block text-brand-secondary hover:text-brand-primary font-light text-sm mb-8 transition-colors"
+              className="inline-block font-light text-sm mb-8 transition-colors"
+              style={{ color: 'var(--color-accent-secondary)' }}
+              onMouseEnter={(e) => e.target.style.color = 'var(--color-accent-primary)'}
+              onMouseLeave={(e) => e.target.style.color = 'var(--color-accent-secondary)'}
             >
               ← Back to Shop
             </Link>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
               {/* Product Image */}
-              <div className="aspect-square bg-brand-background overflow-hidden">
+              <div className="aspect-square overflow-hidden" style={{ backgroundColor: 'var(--color-background)' }}>
                 <img
                   src={product.image}
                   alt={product.name}
@@ -86,35 +89,52 @@ const ProductDetail = () => {
               {/* Product Info */}
               <div className="flex flex-col justify-center space-y-8">
                 {/* Product Name */}
-                <h1 className="text-3xl sm:text-4xl font-light tracking-tight text-brand-neutral">
+                <h1 className="text-3xl sm:text-4xl font-light tracking-tight" style={{ color: 'var(--color-text-primary)' }}>
                   {product.name}
                 </h1>
 
                 {/* Price */}
-                <p className="text-2xl font-light text-brand-secondary">
+                <p className="text-2xl font-light" style={{ color: 'var(--color-accent-secondary)' }}>
                   £{product.price}
                 </p>
 
                 {/* Description */}
                 <div className="space-y-4">
-                  <p className="text-body text-lg leading-relaxed font-normal">
+                  <p className="text-body text-lg leading-relaxed font-normal" style={{ color: 'var(--color-text-primary)' }}>
                     {product.description}
                   </p>
-                  <p className="text-body text-base text-brand-secondary font-normal">
+                  <p className="text-body text-base font-normal" style={{ color: 'var(--color-accent-secondary)' }}>
                     Every purchase directly funds counselling sessions for men in need.
                   </p>
                 </div>
 
                 {/* Size Selection */}
                 <div className="space-y-4 pt-4">
-                  <label className="block text-sm font-light text-brand-neutral tracking-wide uppercase">
+                  <label className="block text-sm font-light tracking-wide uppercase" style={{ color: 'var(--color-text-primary)' }}>
                     Size
                   </label>
                   <div className="grid grid-cols-6 gap-3">
                     {sizes.map((size) => (
                       <button
                         key={size}
-                        className="py-3 px-4 border border-brand-secondary/30 text-brand-neutral font-light hover:border-brand-primary hover:bg-brand-background transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2"
+                        className="py-3 px-4 font-light transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                        style={{ 
+                          border: '1px solid',
+                          borderColor: 'var(--color-accent-secondary)' + '4D',
+                          color: 'var(--color-text-primary)',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.borderColor = 'var(--color-accent-primary)';
+                          e.target.style.backgroundColor = 'var(--color-background)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.borderColor = 'var(--color-accent-secondary)' + '4D';
+                          e.target.style.backgroundColor = 'transparent';
+                        }}
+                        onFocus={(e) => {
+                          e.target.style.outline = '2px solid var(--color-accent-primary)';
+                          e.target.style.outlineOffset = '2px';
+                        }}
                       >
                         {size}
                       </button>
@@ -123,12 +143,31 @@ const ProductDetail = () => {
                 </div>
 
                 {/* Add to Cart Button */}
-                <button className="w-full py-4 bg-brand-primary text-white text-sm font-light tracking-wide hover:bg-brand-primary/90 transition-colors duration-200 mt-8">
+                <button 
+                  className="w-full py-4 text-sm font-light tracking-wide transition-colors duration-200 mt-8"
+                  style={{ 
+                    backgroundColor: 'var(--color-accent-primary)',
+                    color: 'var(--color-background)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = 'var(--color-dark-section)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = 'var(--color-accent-primary)';
+                  }}
+                >
                   Add to Cart
                 </button>
 
                 {/* Additional Info */}
-                <div className="pt-6 border-t border-brand-secondary/20 space-y-3 text-sm text-brand-secondary font-light">
+                <div 
+                  className="pt-6 space-y-3 text-sm font-light"
+                  style={{ 
+                    borderTop: '1px solid',
+                    borderColor: 'var(--color-accent-secondary)' + '33',
+                    color: 'var(--color-accent-secondary)',
+                  }}
+                >
                   <p>Free shipping on orders over £50</p>
                   <p>100% of profits fund men's counselling sessions</p>
                 </div>

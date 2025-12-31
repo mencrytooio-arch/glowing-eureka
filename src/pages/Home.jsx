@@ -2,13 +2,16 @@ import { Link } from 'react-router-dom';
 
 /**
  * Home Page
- * Hero section with logo image (not clickable) and brand colors
+ * Hero section with transparent logo and brand colors
  */
 const Home = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-brand-background">
+      <section 
+        className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
+        style={{ backgroundColor: 'var(--color-background)' }}
+      >
         {/* Hero Image Background */}
         <div className="absolute inset-0 z-0">
           <img
@@ -28,12 +31,13 @@ const Home = () => {
         {/* Content */}
         <div className="relative z-10 container-custom py-20 sm:py-24">
           <div className="max-w-4xl mx-auto text-center space-y-10 sm:space-y-12">
-            {/* Logo - Not clickable, visual brand mark only */}
+            {/* Logo - Transparent background, not clickable */}
             <div className="flex justify-center mb-4">
               <img
                 src="/logo.png"
                 alt="MenCryToo"
                 className="h-16 sm:h-20 lg:h-24 w-auto"
+                style={{ backgroundColor: 'transparent' }}
                 onError={(e) => {
                   if (e.target.src.includes('/logo.png')) {
                     e.target.src = '/logo.svg';
@@ -45,16 +49,19 @@ const Home = () => {
             </div>
 
             {/* Supporting Line */}
-            <p className="text-lg sm:text-xl text-brand-secondary font-light">
+            <p className="text-lg sm:text-xl font-light" style={{ color: 'var(--color-accent-secondary)' }}>
               Wear the change. Every purchase funds counselling for men.
             </p>
 
             {/* Mission Statement */}
-            <div className="max-w-3xl mx-auto space-y-5 bg-white/80 backdrop-blur-sm px-8 py-10 sm:px-12 sm:py-12 rounded-sm">
-              <p className="text-xl sm:text-2xl text-brand-neutral font-light leading-relaxed">
+            <div 
+              className="max-w-3xl mx-auto space-y-5 backdrop-blur-sm px-8 py-10 sm:px-12 sm:py-12 rounded-sm"
+              style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
+            >
+              <p className="text-xl sm:text-2xl font-light leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
                 MenCryToo exists to raise awareness and provide support for men all over the world who are suffering with mental health issues.
               </p>
-              <p className="text-lg sm:text-xl text-brand-neutral/90 font-light leading-relaxed">
+              <p className="text-lg sm:text-xl font-light leading-relaxed" style={{ color: 'var(--color-text-primary)', opacity: 0.9 }}>
                 All profits from clothing sales are used to fund counselling sessions for those who need them most.
               </p>
             </div>
@@ -63,20 +70,41 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-2">
               <Link
                 to="/shop"
-                className="px-8 py-3 bg-brand-primary text-white text-sm font-light tracking-wide hover:bg-brand-primary/90 transition-colors duration-200"
+                className="px-8 py-3 text-sm font-light tracking-wide transition-colors duration-200"
+                style={{ 
+                  backgroundColor: 'var(--color-accent-primary)',
+                  color: 'var(--color-background)',
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = 'var(--color-dark-section)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = 'var(--color-accent-primary)';
+                }}
               >
                 Shop the Collection
               </Link>
               <Link
                 to="/how-we-work"
-                className="px-8 py-3 border border-brand-primary text-brand-primary text-sm font-light tracking-wide hover:bg-brand-background transition-colors duration-200"
+                className="px-8 py-3 text-sm font-light tracking-wide transition-colors duration-200"
+                style={{ 
+                  border: '1px solid var(--color-accent-primary)',
+                  color: 'var(--color-accent-primary)',
+                  backgroundColor: 'transparent',
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = 'var(--color-background)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = 'transparent';
+                }}
               >
                 Learn How We Work
               </Link>
             </div>
 
             {/* Supporting Statement */}
-            <p className="text-sm sm:text-base text-brand-secondary font-light pt-2">
+            <p className="text-sm sm:text-base font-light pt-2" style={{ color: 'var(--color-accent-secondary)' }}>
               Clothing with purpose. Transparency by design. Support where it's needed most.
             </p>
           </div>

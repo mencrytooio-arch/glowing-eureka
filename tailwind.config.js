@@ -7,13 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand color system
+        // Brand color system using CSS variables
         brand: {
-          neutral: '#0E0E0E',      // Charcoal Black - Headings, body text, navigation
-          primary: '#1F4A5F',      // Deep Calm Blue - Primary CTAs, active states
-          secondary: '#7F97A0',    // Muted Blue-Grey - Subheadings, icons, dividers
-          background: '#F4F3F1',   // Warm Off-White - Page backgrounds
-          dark: '#0B1F2A',         // Ink Navy - Footer, dark sections
+          neutral: 'var(--color-text-primary)',
+          primary: 'var(--color-accent-primary)',
+          secondary: 'var(--color-accent-secondary)',
+          background: 'var(--color-background)',
+          dark: 'var(--color-dark-section)',
         },
       },
       maxWidth: {
