@@ -7,10 +7,12 @@ const HowWeWork = () => {
     <main className="min-h-screen" style={{ backgroundColor: 'var(--color-background)' }}>
       {/* Header */}
       <section 
-        className="section-spacing border-b"
+        className="border-b"
         style={{ 
           backgroundColor: 'var(--color-background)',
           borderColor: 'var(--color-accent-secondary)' + '33',
+          paddingTop: '3rem',
+          paddingBottom: '3rem',
         }}
       >
         <div className="container-custom">
@@ -99,7 +101,7 @@ const HowWeWork = () => {
             </div>
 
             {/* Divider before Our Support */}
-            <div className="mt-12 mb-6" style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33' }}></div>
+            <div className="mt-12 mb-3" style={{ borderTop: '1px solid', borderColor: 'var(--color-accent-secondary)' + '33' }}></div>
           </div>
         </div>
       </section>

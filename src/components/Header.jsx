@@ -16,12 +16,12 @@ const Header = () => {
       <nav className="container-custom py-6 sm:py-8">
         <div className="flex items-center justify-between">
           {/* Logo - Transparent background, 3x size */}
-          <Link to="/" className="flex items-center" style={{ padding: '0' }}>
+          <Link to="/" className="flex items-center" style={{ padding: '0', margin: '0' }}>
             <img
               src="/logo.png"
               alt="MenCryToo"
               className="h-36 sm:h-42 w-auto"
-              style={{ backgroundColor: 'transparent' }}
+              style={{ backgroundColor: 'transparent', padding: '0', margin: '0', display: 'block' }}
               onError={(e) => {
                 if (e.target.src.includes('/logo.png')) {
                   e.target.src = '/logo.svg';
