@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import FundingPots from '../components/FundingPots';
+import ImpactTracker from '../components/ImpactTracker';
 
 /**
  * Home Page
@@ -112,8 +112,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Funding Pots Section */}
-      <FundingPots />
+      {/* Impact Tracker Section */}
+      <ImpactTracker />
     </>
   );
 };
