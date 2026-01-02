@@ -153,13 +153,11 @@ const ImpactTracker = () => {
 
   if (loadingRef.current) {
     return (
-      <section className="section-spacing" style={{ backgroundColor: 'var(--color-background)' }}>
-        <div className="container-custom">
-          <div className="text-center">
-            <p className="font-light" style={{ color: 'var(--color-accent-secondary)' }}>Loading impact data...</p>
-          </div>
+      <div style={{ backgroundColor: 'var(--color-background)', marginTop: '0' }}>
+        <div className="text-center py-12">
+          <p className="font-light" style={{ color: 'var(--color-accent-secondary)' }}>Loading impact data...</p>
         </div>
-      </section>
+      </div>
     );
   }
 
@@ -170,15 +168,15 @@ const ImpactTracker = () => {
   const fillY = 260 - fillHeight;
 
   return (
-    <section 
-      className="min-h-[600px] w-full flex items-center justify-center px-6 py-12 md:py-16" 
-      style={{ backgroundColor: 'var(--color-background)', color: 'var(--color-text-primary)' }}
+    <div 
+      className="min-h-[600px] w-full flex items-center justify-center py-12 md:py-16" 
+      style={{ backgroundColor: 'var(--color-background)', color: 'var(--color-text-primary)', marginTop: '0' }}
     >
-      <div className="w-full max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="w-full">
+        <div className="impact-layout">
           
           {/* Left Column - Text Content */}
-          <div className="space-y-8 text-center md:text-left order-2 md:order-1">
+          <div className="space-y-8 text-center md:text-left">
             <div className="space-y-4">
               {/* Headline */}
               <h1 
@@ -249,8 +247,8 @@ const ImpactTracker = () => {
           </div>
           
           {/* Right Column - Jar */}
-          <div className="flex justify-center order-1 md:order-2">
-            <div className="relative w-full max-w-[200px] mx-auto">
+          <div>
+            <div className="relative w-full max-w-[200px]">
               <svg 
                 viewBox={svgViewBox} 
                 className="w-full h-auto" 
@@ -327,7 +325,7 @@ const ImpactTracker = () => {
           
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
