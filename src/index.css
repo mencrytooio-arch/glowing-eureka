@@ -89,18 +89,66 @@
     }
   }
 
-  /* Section-specific vertical spacing */
+  /* Homepage section spacing - symmetrical padding system */
   .section-hero {
-    margin-bottom: calc(var(--section-gap) * 0.6);
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
   }
 
-  .section-impact {
+  .section-hero > *:last-child {
     margin-bottom: 0;
   }
 
+  .section-hero img {
+    display: block;
+  }
+
+  /* Impact tracker section - hard-set spacing and vertical centering */
+  .section-impact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: auto; /* breaks margin collapse */
+  }
+
+  .section-impact > *:first-child {
+    margin-top: 0;
+  }
+
+  .section-impact > *:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Email signup section - match impact tracker spacing */
   .section-email {
-    padding-top: calc(var(--section-gap) * 0.6);
-    padding-bottom: var(--section-gap);
+    padding-top: 32px;
+    padding-bottom: 32px;
+    margin: 0;
+  }
+
+  .section-email > *:first-child {
+    margin-top: 0;
+  }
+
+  /* Reset any child element margins that could create extra spacing */
+  .section-hero *:first-child,
+  .section-impact *:first-child,
+  .section-email *:first-child {
+    margin-top: 0;
+  }
+
+  .section-hero *:last-child,
+  .section-impact *:last-child,
+  .section-email *:last-child {
+    margin-bottom: 0;
   }
   
   .prose-content {
