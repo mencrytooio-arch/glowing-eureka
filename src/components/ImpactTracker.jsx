@@ -131,6 +131,12 @@ const ImpactTracker = () => {
       loadingRef.current = false;
     } catch (err) {
       console.error('Error fetching funding data:', err);
+      // Show component with default values (zeros) even if API fails
+      setFundingData({
+        totalAmountRaised: 0,
+        currentPackageAmount: 0,
+        packagesFundedCount: 0,
+      });
       loadingRef.current = false;
     }
   };
