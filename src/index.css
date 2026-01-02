@@ -9,6 +9,8 @@
   --color-accent-secondary: #7F97A0;
   --color-background: #F4F3F1;
   --color-dark-section: #0B1F2A;
+  --section-gap: 96px;
+  --impact-section-gap: calc(var(--section-gap) * 0.6); /* 40% reduction: 96px × 0.6 = 57.6px */
 }
 
 @layer base {
@@ -40,11 +42,6 @@
   
   .section-spacing {
     @apply py-12 sm:py-16 lg:py-20;
-  }
-
-  /* Section spacing - single source of truth */
-  :root {
-    --section-gap: 96px;
   }
 
   /* Section base - full width, margin collapse prevention */
@@ -94,14 +91,15 @@
 
   /* Section-specific vertical spacing */
   .section-hero {
-    margin-bottom: var(--section-gap);
+    margin-bottom: calc(var(--section-gap) * 0.6);
   }
 
   .section-impact {
-    margin-bottom: var(--section-gap);
+    margin-bottom: 0;
   }
 
   .section-email {
+    padding-top: calc(var(--section-gap) * 0.6);
     padding-bottom: var(--section-gap);
   }
   
