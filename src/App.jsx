@@ -6,6 +6,7 @@ import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
 import About from './pages/About';
 import HowWeWork from './pages/HowWeWork';
+import EnquiryForm from './pages/EnquiryForm';
 
 /**
  * Main App Component
@@ -22,6 +23,7 @@ function App() {
           <Route path="/shop/product/:id" element={<ProductDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/how-we-work" element={<HowWeWork />} />
+          <Route path="/enquiry-form" element={<EnquiryForm />} />
         </Routes>
         <Footer />
       </div>

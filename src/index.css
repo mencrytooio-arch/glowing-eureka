@@ -182,4 +182,201 @@
     text-align: right;
     /* margin-left is set dynamically via JavaScript to match left gap */
   }
+
+  /* Mobile-only layout & spacing adjustments */
+  @media (max-width: 768px) {
+    /* Prevent horizontal scrolling on small screens */
+    body {
+      overflow-x: hidden;
+    }
+
+    /* Hero section - remove extra space and image gap on mobile */
+    .section-hero {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      overflow-x: hidden;
+    }
+
+    /* Remove bottom padding from hero inner container on mobile */
+    .section-hero > div {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    /* Remove padding from hero content wrapper on mobile */
+    .section-hero .container-custom {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    /* Fix hero image gap - ensure images display block with no line-height */
+    .section-hero img {
+      display: block;
+      line-height: 0;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Prevent horizontal overflow from hero content */
+    .section-hero > div {
+      overflow-x: hidden;
+    }
+
+    /* Impact Tracker - centered section, fixed vertical spacing */
+    .section-impact {
+      margin-top: 32px;
+      margin-bottom: 32px;
+      padding-top: 0;
+      padding-bottom: 0;
+      align-items: center;
+    }
+
+    .section-impact .section-inner {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    /* Remove padding from ImpactTracker component root div on mobile */
+    .section-impact .section-inner > div {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    /* Email Signup - full-width, centered, fixed vertical spacing */
+    .section-email {
+      margin-top: 32px;
+      margin-bottom: 32px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    .section-email .section-inner {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    /* Remove padding from EmailSignup component root div on mobile */
+    .section-email .section-inner > div {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    /* Footer - vertical stack, centered, with even spacing */
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      justify-self: center;
+      text-align: center;
+      margin: 0;
+    }
+
+    /* Cancel dynamic horizontal offset on mobile */
+    .footer-right {
+      margin-left: 0 !important;
+    }
+
+    /* Ensure a comfortable tap target for the Instagram icon */
+    .footer-right a {
+      width: 44px;
+      height: 44px;
+    }
+
+    /* ============================================
+       MOBILE PERFORMANCE & POLISH
+       ============================================ */
+
+    /* Reduce transition durations on mobile for lighter feel */
+    a,
+    button,
+    input,
+    .transition-colors,
+    .transition-all {
+      transition-duration: 150ms !important;
+    }
+
+    /* Disable heavy image transforms on mobile (product hover scale) */
+    img[class*="group-hover"] {
+      transform: none !important;
+    }
+
+    /* Disable footer transform animation on mobile - keep opacity only */
+    .footer-right a {
+      transform: none !important;
+      transition: opacity 150ms ease !important;
+    }
+
+    /* Prevent layout shifts from images - ensure proper sizing */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Prevent oversized images from causing horizontal overflow */
+    .section-hero img,
+    .section-impact img,
+    .section-email img {
+      max-width: 100vw;
+      width: 100%;
+    }
+
+    /* Ensure stable layout - prevent reflows during load */
+    .section-hero,
+    .section-impact,
+    .section-email {
+      contain: layout;
+    }
+
+    /* Disable smooth scroll on mobile for instant navigation */
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Respect prefers-reduced-motion globally */
+  @media (prefers-reduced-motion: reduce) {
+    /* Reduce all animations and transitions */
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    /* Disable transforms when reduced motion is preferred */
+    img,
+    a,
+    button,
+    [style*="transform"] {
+      transform: none !important;
+    }
+  }
+
+  /* Combined: Mobile + Reduced Motion - extra strict */
+  @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+    /* Disable all motion on mobile when reduced motion is preferred */
+    * {
+      transition: none !important;
+      animation: none !important;
+    }
+
+    img,
+    a,
+    button,
+    [style*="transform"] {
+      transform: none !important;
+    }
+  }
 }

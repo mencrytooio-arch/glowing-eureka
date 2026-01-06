@@ -125,6 +125,28 @@ const Header = () => {
             >
               How We Work
             </Link>
+            <Link
+              to="/enquiry-form"
+              className="text-sm font-light tracking-wide transition-colors duration-200"
+              style={{
+                color: isActive('/enquiry-form') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
+                borderBottom: isActive('/enquiry-form') ? '1px solid var(--color-accent-primary)' : 'none',
+                paddingBottom: isActive('/enquiry-form') ? '4px' : '0',
+              }}
+              aria-current={isActive('/enquiry-form') ? 'page' : undefined}
+              onMouseEnter={(e) => {
+                if (!isActive('/enquiry-form')) {
+                  e.target.style.color = 'var(--color-accent-primary)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive('/enquiry-form')) {
+                  e.target.style.color = 'var(--color-text-primary)';
+                }
+              }}
+            >
+              Enquiry Form
+            </Link>
           </div>
         </div>
       </nav>
