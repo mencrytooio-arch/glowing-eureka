@@ -25,11 +25,14 @@ const Header = () => {
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
+      document.body.classList.add('menu-open');
       document.body.style.overflow = 'hidden';
     } else {
+      document.body.classList.remove('menu-open');
       document.body.style.overflow = '';
     }
     return () => {
+      document.body.classList.remove('menu-open');
       document.body.style.overflow = '';
     };
   }, [isMenuOpen]);
@@ -244,9 +247,7 @@ const Header = () => {
             id="mobile-menu"
             className="mobile-menu"
             style={{
-              display: isMenuOpen ? 'block' : 'none',
-              transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
-              transition: 'transform 0.3s ease-in-out',
+              display: isMenuOpen ? 'flex' : 'none',
             }}
           >
             {/* Close Button */}
@@ -268,13 +269,21 @@ const Header = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                zIndex: 10000,
               }}
             >
               ✕
             </button>
 
-            {/* Mobile Navigation Links */}
-            <nav style={{ display: 'flex', flexDirection: 'column', gap: '0', width: '100%', overflow: 'visible' }}>
+            {/* Mobile Navigation Links - Scrollable vertical list */}
+            <nav style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              width: '100%', 
+              flex: '1',
+              overflowY: 'auto',
+              padding: '0',
+            }}>
               <Link
                 to="/"
                 onClick={closeMenu}
