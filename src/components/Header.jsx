@@ -251,16 +251,17 @@ const Header = () => {
               bottom: '0',
               backgroundColor: 'rgba(255, 255, 255, 0.98)',
               backdropFilter: 'blur(10px)',
-              zIndex: '40',
+              zIndex: '1001',
               paddingTop: '80px',
               paddingLeft: '1.5rem',
               paddingRight: '1.5rem',
               paddingBottom: '2rem',
               overflowY: 'auto',
+              maxHeight: '100vh',
+              height: '100vh',
+              display: isMenuOpen ? 'block' : 'none',
               transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
               transition: 'transform 0.3s ease-in-out',
-              visibility: isMenuOpen ? 'visible' : 'hidden',
-              pointerEvents: isMenuOpen ? 'auto' : 'none',
             }}
           >
             {/* Close Button */}
@@ -288,7 +289,7 @@ const Header = () => {
             </button>
 
             {/* Mobile Navigation Links */}
-            <nav style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+            <nav style={{ display: 'flex', flexDirection: 'column', gap: '0', width: '100%', overflow: 'visible' }}>
               <Link
                 to="/"
                 onClick={closeMenu}
