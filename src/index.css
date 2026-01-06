@@ -236,11 +236,18 @@
       transform: rotate(-45deg) translate(6px, -6px);
     }
 
-    /* Mobile menu - ensure all items are visible when menu is open */
-    .mobile-menu[style*="display: block"] {
+    /* Mobile menu - ensure all items are visible */
+    .mobile-menu {
       max-height: 100vh !important;
       overflow-y: auto !important;
       height: 100vh !important;
+    }
+
+    /* Ensure menu is scrollable and shows all content */
+    .mobile-menu:not([style*="display: none"]) {
+      display: block !important;
+      max-height: 100vh !important;
+      overflow-y: auto !important;
     }
 
     .mobile-menu nav {
@@ -249,8 +256,10 @@
       width: 100% !important;
       overflow: visible !important;
       gap: 0 !important;
+      flex-wrap: nowrap !important;
     }
 
+    /* Ensure all navigation links are visible and accessible */
     .mobile-menu .mobile-nav-link {
       display: flex !important;
       align-items: center !important;
@@ -259,6 +268,14 @@
       opacity: 1 !important;
       min-height: 44px !important;
       padding: 16px 0 !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Ensure no clipping of menu items */
+    .mobile-menu nav > * {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
 
     /* Ensure header logo is fully visible on mobile */
@@ -270,9 +287,14 @@
     /* 2️⃣ Offset Hero Section by Header Height - Prevent Header Overlap */
     .section-hero {
       margin-top: 72px !important;
-      padding-top: 0 !important;
+      padding-top: 80px !important;
       margin-bottom: 0;
       overflow-x: hidden;
+    }
+
+    /* Alternative: Use padding-top if margin doesn't work in all cases */
+    .section-hero {
+      padding-top: 72px !important;
     }
 
     /* Ensure hero inner container respects header offset */
