@@ -194,13 +194,30 @@
        MOBILE HEADER & HAMBURGER MENU
        ============================================ */
 
-    /* Show hamburger button, hide desktop nav on mobile */
-    .hamburger-button {
-      display: flex !important;
+    /* STEP 1: Fix header overlapping hero - make header relative on mobile */
+    .header-mobile,
+    header[class*="sticky"],
+    header.sticky {
+      position: relative !important;
+      top: auto !important;
+      transform: none !important;
+      margin-bottom: 0 !important;
     }
 
+    /* Center logo on mobile */
+    .header-nav-wrapper {
+      display: flex !important;
+      justify-content: center !important;
+    }
+
+    /* STEP 3: Hide desktop navigation links on mobile (minimal fix) */
     .nav-links-desktop {
       display: none !important;
+    }
+
+    /* Show hamburger button on mobile */
+    .hamburger-button {
+      display: flex !important;
     }
 
     /* Hamburger animation when open */
@@ -227,28 +244,33 @@
       height: auto;
     }
 
-    /* Hero section - remove extra space and image gap on mobile */
+    /* STEP 2: Remove hidden top offset above hero */
     .section-hero {
-      margin-top: 0;
+      margin-top: 0 !important;
       margin-bottom: 0;
-      padding-top: env(safe-area-inset-top);
+      padding-top: 0 !important;
       padding-bottom: 0;
       overflow-x: hidden;
     }
 
-    /* Fix hero overlap with sticky header - add top offset equal to header height */
+    /* Remove all padding/margin from hero inner containers */
     .section-hero > div {
-      padding-top: 80px;
+      padding-top: 0 !important;
       padding-bottom: 0;
-      margin-top: 0;
+      margin-top: 0 !important;
       margin-bottom: 0;
     }
 
-    /* Ensure hero content starts below header */
+    /* Remove padding from hero content wrapper */
     .section-hero .container-custom {
-      margin-top: 0;
-      padding-top: 1rem;
+      margin-top: 0 !important;
+      padding-top: 0 !important;
       padding-bottom: 0;
+    }
+
+    /* Remove min-height that causes issues */
+    .section-hero > div[class*="min-h"] {
+      min-height: auto !important;
     }
 
     /* Fix hero image gap - ensure images display block with no line-height */
@@ -264,7 +286,7 @@
       overflow-x: hidden;
     }
 
-    /* Impact Tracker - centered section, fixed vertical spacing */
+    /* STEP 4: Impact Tracker - Force true centering */
     .section-impact {
       margin-top: 32px;
       margin-bottom: 32px;
@@ -294,7 +316,7 @@
       margin: 0 auto !important;
     }
 
-    /* Fix Impact Tracker layout - collapse to single column */
+    /* Force Impact Tracker container to flex column and center */
     .impact-layout {
       display: flex !important;
       flex-direction: column !important;
@@ -306,33 +328,38 @@
       margin: 0 auto !important;
     }
 
-    /* Center bottle graphic wrapper (Right Column) */
+    /* Locate bottle graphic wrapper - remove ALL positioning */
     .impact-layout > div:last-child {
+      position: relative !important;
+      left: auto !important;
+      right: auto !important;
+      transform: none !important;
       display: flex !important;
       justify-content: center !important;
       align-items: center !important;
       width: 100% !important;
       margin: 0 auto !important;
-      left: auto !important;
-      right: auto !important;
-      transform: none !important;
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
 
-    /* Center bottle graphic container inside wrapper */
+    /* Force centering with margin auto and flex */
     .impact-layout > div:last-child > div {
+      margin: 0 auto !important;
       display: flex !important;
       justify-content: center !important;
       align-items: center !important;
-      margin: 0 auto !important;
       width: 100% !important;
-      max-width: 200px !important;
+      max-width: 180px !important;
       position: relative !important;
     }
 
-    /* Ensure SVG inside is centered */
-    .impact-layout > div:last-child > div > svg {
+    /* Set mobile-safe width for bottle graphic */
+    .impact-layout > div:last-child > div svg,
+    .impact-layout > div:last-child > div img {
+      max-width: 180px !important;
+      width: 100% !important;
+      height: auto !important;
       display: block !important;
       margin: 0 auto !important;
     }
