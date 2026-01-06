@@ -1,22 +1,85 @@
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 /**
  * Header Component
  * Clean navigation with transparent logo
+ * Mobile: Hamburger menu
+ * Desktop: Inline navigation
  */
 const Header = () => {
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const hamburgerRef = useRef(null);
   
   const isActive = (path) => {
     return location.pathname === path;
   };
 
+  // Close menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
+  // Keyboard navigation and focus trap
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false);
+        hamburgerRef.current?.focus();
+      }
+      
+      // Tab trap inside menu
+      if (e.key === 'Tab' && menuRef.current) {
+        const focusableElements = menuRef.current.querySelectorAll(
+          'a, button, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement?.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement?.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header className="backdrop-blur-sm sticky top-0 z-50 border-b" style={{ borderColor: 'var(--color-accent-secondary)' + '33', backgroundColor: 'rgba(255, 255, 255, 0.95)', margin: '0', padding: '0', lineHeight: '0' }}>
+    <header className="backdrop-blur-sm sticky top-0 z-50 border-b header-mobile" style={{ borderColor: 'var(--color-accent-secondary)' + '33', backgroundColor: 'rgba(255, 255, 255, 0.95)', margin: '0', padding: '0', lineHeight: '0' }}>
       <nav className="container-custom py-0" style={{ marginTop: '0', marginBottom: '0', paddingTop: '0', paddingBottom: '0', lineHeight: '0' }}>
-        <div className="flex items-center justify-between" style={{ marginTop: '0', marginBottom: '0', paddingTop: '0', paddingBottom: '0', lineHeight: '0' }}>
+        <div className="flex items-center justify-between header-nav-wrapper" style={{ marginTop: '0', marginBottom: '0', paddingTop: '0', paddingBottom: '0', lineHeight: '0' }}>
           {/* Logo - Transparent background, 3x size */}
-          <Link to="/" className="flex items-center" style={{ padding: '0', margin: '0', lineHeight: '0', paddingTop: '0', paddingBottom: '0', marginTop: '0', marginBottom: '0', display: 'flex', alignItems: 'center' }}>
+          <Link to="/" className="flex items-center header-logo" style={{ padding: '0', margin: '0', lineHeight: '0', paddingTop: '0', paddingBottom: '0', marginTop: '0', marginBottom: '0', display: 'flex', alignItems: 'center' }}>
             <img
               src="/logo.png"
               alt="MenCryToo"
@@ -39,8 +102,34 @@ const Header = () => {
             />
           </Link>
 
-          {/* Navigation Links */}
-          <div className="flex items-center space-x-8 sm:space-x-12">
+          {/* Hamburger Button (Mobile Only) */}
+          <button
+            ref={hamburgerRef}
+            className="hamburger-button"
+            onClick={toggleMenu}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            style={{
+              display: 'none',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '8px',
+              minWidth: '44px',
+              minHeight: '44px',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              gap: '5px',
+            }}
+          >
+            <span className="hamburger-line" style={{ width: '24px', height: '1px', backgroundColor: 'var(--color-text-primary)', transition: 'all 0.3s ease' }}></span>
+            <span className="hamburger-line" style={{ width: '24px', height: '1px', backgroundColor: 'var(--color-text-primary)', transition: 'all 0.3s ease' }}></span>
+            <span className="hamburger-line" style={{ width: '24px', height: '1px', backgroundColor: 'var(--color-text-primary)', transition: 'all 0.3s ease' }}></span>
+          </button>
+
+          {/* Navigation Links (Desktop) */}
+          <div className="nav-links-desktop flex items-center space-x-8 sm:space-x-12">
             <Link
               to="/"
               className="text-sm font-light tracking-wide transition-colors duration-200"
@@ -147,6 +236,160 @@ const Header = () => {
             >
               Enquiry Form
             </Link>
+          </div>
+
+          {/* Mobile Menu (Hidden by default, shown when isMenuOpen is true) */}
+          <div
+            ref={menuRef}
+            id="mobile-menu"
+            className="mobile-menu"
+            style={{
+              position: 'fixed',
+              top: '0',
+              left: '0',
+              right: '0',
+              bottom: '0',
+              backgroundColor: 'rgba(255, 255, 255, 0.98)',
+              backdropFilter: 'blur(10px)',
+              zIndex: '40',
+              paddingTop: '80px',
+              paddingLeft: '1.5rem',
+              paddingRight: '1.5rem',
+              paddingBottom: '2rem',
+              overflowY: 'auto',
+              transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
+              transition: 'transform 0.3s ease-in-out',
+              visibility: isMenuOpen ? 'visible' : 'hidden',
+              pointerEvents: isMenuOpen ? 'auto' : 'none',
+            }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeMenu}
+              aria-label="Close menu"
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '1.5rem',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '8px',
+                minWidth: '44px',
+                minHeight: '44px',
+                fontSize: '24px',
+                color: 'var(--color-text-primary)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              ✕
+            </button>
+
+            {/* Mobile Navigation Links */}
+            <nav style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+              <Link
+                to="/"
+                onClick={closeMenu}
+                className="mobile-nav-link"
+                style={{
+                  padding: '16px 0',
+                  fontSize: '18px',
+                  fontFamily: 'inherit',
+                  fontWeight: '300',
+                  letterSpacing: '0.05em',
+                  color: isActive('/') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
+                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+                  textDecoration: 'none',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                Home
+              </Link>
+              <Link
+                to="/shop"
+                onClick={closeMenu}
+                className="mobile-nav-link"
+                style={{
+                  padding: '16px 0',
+                  fontSize: '18px',
+                  fontFamily: 'inherit',
+                  fontWeight: '300',
+                  letterSpacing: '0.05em',
+                  color: isActive('/shop') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
+                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+                  textDecoration: 'none',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                Shop
+              </Link>
+              <Link
+                to="/about"
+                onClick={closeMenu}
+                className="mobile-nav-link"
+                style={{
+                  padding: '16px 0',
+                  fontSize: '18px',
+                  fontFamily: 'inherit',
+                  fontWeight: '300',
+                  letterSpacing: '0.05em',
+                  color: isActive('/about') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
+                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+                  textDecoration: 'none',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                About
+              </Link>
+              <Link
+                to="/how-we-work"
+                onClick={closeMenu}
+                className="mobile-nav-link"
+                style={{
+                  padding: '16px 0',
+                  fontSize: '18px',
+                  fontFamily: 'inherit',
+                  fontWeight: '300',
+                  letterSpacing: '0.05em',
+                  color: isActive('/how-we-work') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
+                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+                  textDecoration: 'none',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                How We Work
+              </Link>
+              <Link
+                to="/enquiry-form"
+                onClick={closeMenu}
+                className="mobile-nav-link"
+                style={{
+                  padding: '16px 0',
+                  fontSize: '18px',
+                  fontFamily: 'inherit',
+                  fontWeight: '300',
+                  letterSpacing: '0.05em',
+                  color: isActive('/enquiry-form') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
+                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+                  textDecoration: 'none',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                Enquiry Form
+              </Link>
+            </nav>
           </div>
         </div>
       </nav>

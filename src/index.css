@@ -190,22 +190,64 @@
       overflow-x: hidden;
     }
 
+    /* ============================================
+       MOBILE HEADER & HAMBURGER MENU
+       ============================================ */
+
+    /* Show hamburger button, hide desktop nav on mobile */
+    .hamburger-button {
+      display: flex !important;
+    }
+
+    .nav-links-desktop {
+      display: none !important;
+    }
+
+    /* Hamburger animation when open */
+    .hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Mobile menu visibility handled by inline styles (transform + visibility) */
+    .mobile-menu {
+      /* Visibility controlled by React state via inline styles */
+    }
+
+    /* Ensure header logo is fully visible on mobile */
+    .header-logo img {
+      max-width: 120px;
+      height: auto;
+    }
+
     /* Hero section - remove extra space and image gap on mobile */
     .section-hero {
+      margin-top: 0;
       margin-bottom: 0;
+      padding-top: env(safe-area-inset-top);
       padding-bottom: 0;
       overflow-x: hidden;
     }
 
-    /* Remove bottom padding from hero inner container on mobile */
+    /* Fix hero overlap with sticky header - add top offset equal to header height */
     .section-hero > div {
+      padding-top: 80px;
       padding-bottom: 0;
+      margin-top: 0;
       margin-bottom: 0;
     }
 
-    /* Remove padding from hero content wrapper on mobile */
+    /* Ensure hero content starts below header */
     .section-hero .container-custom {
-      padding-top: 0;
+      margin-top: 0;
+      padding-top: 1rem;
       padding-bottom: 0;
     }
 
@@ -235,12 +277,75 @@
       margin-left: auto;
       margin-right: auto;
       text-align: center;
+      width: 100%;
+      max-width: 320px;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
 
     /* Remove padding from ImpactTracker component root div on mobile */
     .section-impact .section-inner > div {
       padding-top: 0 !important;
       padding-bottom: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 auto !important;
+    }
+
+    /* Fix Impact Tracker layout - collapse to single column */
+    .impact-layout {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 2rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 auto !important;
+    }
+
+    /* Center bottle graphic wrapper (Right Column) */
+    .impact-layout > div:last-child {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+      left: auto !important;
+      right: auto !important;
+      transform: none !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    /* Center bottle graphic container inside wrapper */
+    .impact-layout > div:last-child > div {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      max-width: 200px !important;
+      position: relative !important;
+    }
+
+    /* Ensure SVG inside is centered */
+    .impact-layout > div:last-child > div > svg {
+      display: block !important;
+      margin: 0 auto !important;
+    }
+
+    /* Center all text in Impact Tracker */
+    .impact-layout > div:first-child {
+      text-align: center !important;
+      width: 100% !important;
+    }
+
+    /* Ensure text elements are centered */
+    .impact-layout > div:first-child * {
+      text-align: center !important;
     }
 
     /* Email Signup - full-width, centered, fixed vertical spacing */
@@ -340,6 +445,46 @@
     /* Disable smooth scroll on mobile for instant navigation */
     html {
       scroll-behavior: auto;
+    }
+
+    /* ============================================
+       MOBILE POLISH & REFINEMENTS
+       ============================================ */
+
+    /* Fine-tune mobile typography - reduce oversized headings */
+    .section-hero h1,
+    .section-hero h2,
+    .impact-layout h1 {
+      font-size: clamp(2rem, 5vw, 3rem) !important;
+      line-height: 1.2 !important;
+    }
+
+    /* Ensure all tap targets are at least 44px */
+    a,
+    button,
+    input[type="button"],
+    input[type="submit"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Mobile nav links tap targets */
+    .mobile-nav-link {
+      min-height: 44px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    /* Prevent layout shifts when menu opens */
+    .header-mobile {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    /* Smooth menu transitions without layout shifts */
+    .mobile-menu {
+      will-change: transform;
     }
   }
 
