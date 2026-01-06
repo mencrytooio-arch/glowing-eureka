@@ -183,12 +183,13 @@
     /* margin-left is set dynamically via JavaScript to match left gap */
   }
 
+  /* 2️⃣ Lock Header Height as a CSS Variable (Desktop and Mobile) */
+  :root {
+    --header-height: 96px;
+  }
+
   /* Mobile-only layout & spacing adjustments */
   @media (max-width: 768px) {
-    /* 1️⃣ Define mobile header height once */
-    :root {
-      --mobile-header-height: 88px;
-    }
 
     /* Prevent horizontal scrolling on small screens */
     body {
@@ -211,7 +212,7 @@
       top: 0 !important;
       left: 0 !important;
       width: 100% !important;
-      height: var(--mobile-header-height) !important;
+      height: var(--header-height) !important;
       z-index: 1000 !important;
     }
 
@@ -220,7 +221,7 @@
       display: flex !important;
       justify-content: center !important;
       align-items: center !important;
-      height: var(--mobile-header-height) !important;
+      height: var(--header-height) !important;
     }
 
     /* STEP 3: Hide desktop navigation links on mobile (minimal fix) */
@@ -246,13 +247,13 @@
       transform: rotate(-45deg) translate(6px, -6px);
     }
 
-    /* 3️⃣ REBUILD Mobile Navigation - Scrollable full-screen overlay */
+    /* 4️⃣ Fix Mobile Menu Height - Use --vh instead of 100vh (Portrait Only) */
     .mobile-menu {
       position: fixed !important;
-      top: var(--mobile-header-height) !important;
+      top: var(--header-height) !important;
       left: 0 !important;
       width: 100% !important;
-      height: calc(100vh - var(--mobile-header-height)) !important;
+      height: calc((var(--vh, 1vh) * 100) - var(--header-height)) !important;
       background: rgba(255, 255, 255, 0.98) !important;
       backdrop-filter: blur(10px) !important;
       display: flex !important;
@@ -267,7 +268,7 @@
       display: flex !important;
     }
 
-    /* Mobile menu navigation container */
+    /* 5️⃣ Ensure Menu Shows ALL Links - Simple vertical flex column */
     .mobile-menu nav {
       display: flex !important;
       flex-direction: column !important;
@@ -276,6 +277,9 @@
       overflow-y: auto !important;
       padding: 0 !important;
       gap: 0 !important;
+      /* Remove any fixed height - let it grow naturally */
+      height: auto !important;
+      min-height: 0 !important;
     }
 
     /* Ensure all navigation links are visible and scrollable */
@@ -309,6 +313,17 @@
       opacity: 1 !important;
       height: auto !important;
       max-height: none !important;
+      /* Remove overflow hidden - allow natural flow */
+      overflow: visible !important;
+    }
+
+    /* Remove any fixed height constraints from menu lists */
+    .mobile-menu nav ul {
+      display: flex !important;
+      flex-direction: column !important;
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
     }
 
     /* Ensure header logo is fully visible on mobile */
@@ -317,21 +332,24 @@
       height: auto;
     }
 
-    /* 1️⃣ Fix Homepage Hero Being Covered - Explicit offset by header height */
-    .section-hero,
-    .homepage-hero,
-    .hero,
-    .hero-section {
-      margin-top: var(--mobile-header-height) !important;
-      padding-top: 0 !important;
-      margin-bottom: 0;
-      overflow-x: hidden;
-    }
+    /* 3️⃣ Fix Hero Positioning - Use padding-top (not margin-top) for layout flow */
+    @media (orientation: portrait) {
+      .section-hero,
+      .homepage-hero,
+      .hero,
+      .hero-section {
+        padding-top: var(--header-height) !important;
+        margin-top: 0 !important;
+        min-height: calc((var(--vh, 1vh) * 100) - var(--header-height)) !important;
+        margin-bottom: 0;
+        overflow-x: hidden;
+      }
 
-    /* Ensure hero inner container respects the offset */
-    .section-hero > div {
-      padding-top: 0 !important;
-      margin-top: 0 !important;
+      /* Ensure hero inner container respects the offset */
+      .section-hero > div {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+      }
     }
 
     /* Remove negative margins from hero logo that cause overlap with header */
