@@ -315,9 +315,49 @@
       padding: 0 !important;
     }
 
+    /* Minimal, subtle transition for menu open/close animation */
+    .mobile-menu[aria-hidden="false"] {
+      animation: menuFadeIn 180ms ease-out forwards;
+    }
+
+    .mobile-menu[aria-hidden="true"] {
+      animation: menuFadeOut 150ms ease-in forwards;
+    }
+
+    @keyframes menuFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes menuFadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+    }
+
     /* Show menu when open */
-    .mobile-menu[style*="display: block"] {
+    .mobile-menu[style*="display: flex"] {
       display: flex !important;
+    }
+
+    /* Prevent pointer events when menu is closed */
+    .mobile-menu[aria-hidden="true"] {
+      pointer-events: none !important;
+    }
+
+    .mobile-menu[aria-hidden="false"] {
+      pointer-events: auto !important;
     }
 
     /* 5️⃣ Ensure Menu Shows ALL Links - Simple vertical flex column */
@@ -384,24 +424,36 @@
       height: auto;
     }
 
-    /* 3️⃣ Fix Hero Positioning - Use padding-top (not margin-top) for layout flow */
-    @media (orientation: portrait) {
-      .section-hero,
-      .homepage-hero,
-      .hero,
-      .hero-section {
-        padding-top: var(--header-height) !important;
-        margin-top: 0 !important;
-        min-height: calc((var(--vh, 1vh) * 100) - var(--header-height)) !important;
-        margin-bottom: 0;
-        overflow-x: hidden;
-      }
+    /* Fix Homepage Hero Being Cut Off by Fixed Header (Mobile Only) */
+    /* 1. Identify header height: var(--header-height) = 96px */
+    /* 2. Apply padding-top equal to header height to push hero below header */
+    .section-hero {
+      padding-top: var(--header-height) !important;
+      margin-top: 0 !important;
+      margin-bottom: 0;
+      overflow-x: hidden;
+    }
 
-      /* Ensure hero inner container respects the offset */
-      .section-hero > div {
-        padding-top: 0 !important;
-        margin-top: 0 !important;
-      }
+    /* Ensure hero inner container doesn't overflow behind header */
+    .section-hero > div {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+      /* Ensure absolute positioned image respects the hero padding */
+      position: relative;
+    }
+
+    /* Hero image background container - ensure it doesn't overflow above */
+    .section-hero > div > div[class*="absolute"] {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    /* Prevent hero content from being clipped - ensure full visibility */
+    .section-hero .container-custom {
+      margin-top: 0 !important;
+      padding-top: 1rem !important;
     }
 
     /* Remove negative margins from hero logo that cause overlap with header */
@@ -409,12 +461,7 @@
     .section-hero > div > div > div[style*="-6.5rem"],
     .section-hero > div > div > div {
       margin-top: 0 !important;
-      margin-bottom: 1rem !important;
-    }
-
-    /* Ensure hero content container has proper top spacing below header */
-    .section-hero .container-custom {
-      padding-top: 2rem !important;
+      margin-bottom: 0 !important;
     }
 
     /* 3️⃣ Prevent Hero Image Cropping - Anchor from top */

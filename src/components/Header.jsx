@@ -17,10 +17,17 @@ const Header = () => {
     return location.pathname === path;
   };
 
-  // Close menu when route changes
+  // Close menu when route changes and reset state on navigation
   useEffect(() => {
     setIsMenuOpen(false);
+    // Return focus to hamburger button on route change
+    hamburgerRef.current?.focus();
   }, [location.pathname]);
+  
+  // Ensure menu is closed on initial render
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, []);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -75,6 +82,8 @@ const Header = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    // Return focus to hamburger button when menu closes
+    hamburgerRef.current?.focus();
   };
 
   return (
@@ -246,6 +255,7 @@ const Header = () => {
             ref={menuRef}
             id="mobile-menu"
             className="mobile-menu"
+            aria-hidden={!isMenuOpen}
             style={{
               display: isMenuOpen ? 'flex' : 'none',
             }}
@@ -276,14 +286,17 @@ const Header = () => {
             </button>
 
             {/* Mobile Navigation Links - Scrollable vertical list */}
-            <nav style={{ 
-              display: 'flex', 
-              flexDirection: 'column', 
-              width: '100%', 
-              flex: '1',
-              overflowY: 'auto',
-              padding: '0',
-            }}>
+            <nav 
+              aria-label="Mobile navigation"
+              style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                width: '100%', 
+                flex: '1',
+                overflowY: 'auto',
+                padding: '0',
+              }}
+            >
               <Link
                 to="/"
                 onClick={closeMenu}
