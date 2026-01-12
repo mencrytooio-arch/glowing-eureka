@@ -30,7 +30,7 @@ const Home = () => {
 
           {/* Content */}
           <div className="relative z-10 container-custom py-20 sm:py-24">
-            <div className="max-w-4xl mx-auto text-center space-y-10 sm:space-y-12">
+            <div className="max-w-4xl mx-auto text-center space-y-10 sm:space-y-12 hero-content-spacing">
               {/* Logo - Transparent background, 3x size, not clickable */}
               <div className="flex justify-center hero-logo-container" style={{ margin: '0', padding: '0', paddingTop: '0', paddingBottom: '0', lineHeight: '0', display: 'flex', alignItems: 'center' }}>
                 <img
@@ -67,7 +67,7 @@ const Home = () => {
               </div>
 
               {/* Primary CTAs */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
                 <Link
                   to="/shop"
                   className="px-8 py-3 text-sm font-light tracking-wide transition-colors duration-200"
@@ -104,7 +104,7 @@ const Home = () => {
               </div>
 
               {/* Supporting Statement - Matched size and color */}
-              <p className="text-lg sm:text-xl font-light pt-2" style={{ color: 'var(--color-text-primary)', opacity: 0.95 }}>
+              <p className="text-lg sm:text-xl font-light" style={{ color: 'var(--color-text-primary)', opacity: 0.95 }}>
                 Clothing with purpose. Transparency by design. Support where it's needed most.
               </p>
             </div>

@@ -226,6 +226,12 @@
       max-height: none !important;
     }
 
+    /* Reset section margins on mobile to remove spacing */
+    .section {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
     /* Ensure Router and App wrapper containers are content-driven */
     [class*="Router"],
     #root > div > div {
@@ -242,57 +248,6 @@
       overflow: visible !important;
     }
 
-    /* ============================================
-       🔴 DIAGNOSTIC: Red semi-transparent backgrounds (Mobile Portrait Only)
-       ============================================ */
-    @media (orientation: portrait) {
-      /* Body diagnostic */
-      body {
-        background-color: rgba(255, 0, 0, 0.1) !important;
-      }
-
-      /* Header diagnostic */
-      header,
-      .header-mobile {
-        background-color: rgba(255, 0, 0, 0.2) !important;
-      }
-
-      /* Main element diagnostic (if exists) */
-      main {
-        background-color: rgba(255, 0, 0, 0.15) !important;
-      }
-
-      /* App wrapper div diagnostic */
-      #root > div {
-        background-color: rgba(255, 0, 0, 0.12) !important;
-      }
-
-      /* Homepage hero section diagnostic */
-      .section-hero,
-      .homepage-hero,
-      .hero,
-      .hero-section {
-        background-color: rgba(255, 0, 0, 0.2) !important;
-      }
-
-      /* Hero immediate parent wrapper diagnostic */
-      .section-hero > div,
-      .homepage-hero > div,
-      .hero > div,
-      .hero-section > div {
-        background-color: rgba(255, 0, 0, 0.25) !important;
-      }
-
-      /* Position absolute/fixed elements above hero diagnostic */
-      header[class*="fixed"],
-      header[class*="sticky"],
-      .header-mobile,
-      .mobile-menu,
-      .section-hero > div[class*="absolute"],
-      .section-hero > div > div[class*="absolute"] {
-        background-color: rgba(255, 0, 0, 0.3) !important;
-      }
-    }
 
     /* Prevent horizontal scrolling on small screens */
     body {
@@ -622,6 +577,16 @@
       max-height: none !important;
     }
 
+    /* Override space-y on mobile for consistent spacing */
+    .hero-content-spacing {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-content-spacing > * + * {
+      margin-top: 2.5rem;
+    }
+
     /* Hero logo container - remove all constraints */
     .section-hero .hero-logo-container,
     .hero .hero-logo-container,
@@ -702,14 +667,18 @@
 
     /* STEP 4: Impact Tracker - Force true centering */
     .section-impact {
-      margin-top: 32px;
-      margin-bottom: 32px;
-      padding-top: 0;
-      padding-bottom: 0;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
       align-items: center;
+      border-top: none !important;
+      border-bottom: none !important;
     }
 
     .section-impact .section-inner {
+      border-top: none !important;
+      border-bottom: none !important;
       margin-left: auto;
       margin-right: auto;
       text-align: center;
