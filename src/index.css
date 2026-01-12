@@ -632,8 +632,6 @@
       min-height: unset !important;
       max-height: none !important;
       overflow: visible !important;
-      margin-top: 2rem !important;
-      margin-bottom: 2rem !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
