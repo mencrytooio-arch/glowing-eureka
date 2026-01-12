@@ -115,3 +115,6 @@ For questions about:
 - **Component Styling**: Check `src/components/FundingPots.jsx`
 - **Backend Logic**: Review `netlify/functions/payment-webhook.js`
 
+
+
+

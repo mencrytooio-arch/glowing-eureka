@@ -285,15 +285,15 @@ const Header = () => {
               ✕
             </button>
 
-            {/* Mobile Navigation Links - Scrollable vertical list */}
+            {/* Mobile Navigation Links - Full height, all items visible */}
             <nav 
               aria-label="Mobile navigation"
+              className="mobile-nav-links-wrapper"
               style={{ 
                 display: 'flex', 
                 flexDirection: 'column', 
                 width: '100%', 
                 flex: '1',
-                overflowY: 'auto',
                 padding: '0',
               }}
             >

@@ -310,7 +310,8 @@
       backdrop-filter: blur(10px) !important;
       display: flex !important;
       flex-direction: column !important;
-      overflow-y: auto !important;
+      overflow: hidden !important;
+      overflow-y: visible !important;
       z-index: 9999 !important;
       padding: 0 !important;
     }
@@ -360,27 +361,34 @@
       pointer-events: auto !important;
     }
 
-    /* 5️⃣ Ensure Menu Shows ALL Links - Simple vertical flex column */
+    /* 5️⃣ Ensure Menu Shows ALL Links - Full height, evenly distributed, no scrolling */
     .mobile-menu nav {
       display: flex !important;
       flex-direction: column !important;
       width: 100% !important;
       flex: 1 !important;
-      overflow-y: auto !important;
+      overflow: hidden !important;
+      overflow-y: visible !important;
       padding: 0 !important;
       gap: 0 !important;
-      /* Remove any fixed height - let it grow naturally */
-      height: auto !important;
-      min-height: 0 !important;
+      /* Use full available height */
+      height: 100% !important;
+      min-height: 100% !important;
+      /* Distribute items evenly across available space */
+      justify-content: space-evenly !important;
+      align-items: stretch !important;
     }
 
-    /* Ensure all navigation links are visible and scrollable */
+    /* Ensure all navigation links are visible - evenly distributed */
     .mobile-menu .mobile-nav-link {
-      display: block !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
       width: 100% !important;
-      padding: 16px 24px !important;
+      padding: 24px !important;
       font-size: 1.1rem !important;
-      min-height: 44px !important;
+      /* Equal flex distribution - each item takes equal space */
+      flex: 1 1 0 !important;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
       text-decoration: none !important;
       visibility: visible !important;
@@ -400,7 +408,7 @@
 
     /* Ensure no clipping of menu items - all must be visible */
     .mobile-menu nav > * {
-      display: block !important;
+      display: flex !important;
       visibility: visible !important;
       opacity: 1 !important;
       height: auto !important;
@@ -413,7 +421,7 @@
     .mobile-menu nav ul {
       display: flex !important;
       flex-direction: column !important;
-      height: auto !important;
+      height: 100% !important;
       max-height: none !important;
       overflow: visible !important;
     }
@@ -453,15 +461,31 @@
     /* Prevent hero content from being clipped - ensure full visibility */
     .section-hero .container-custom {
       margin-top: 0 !important;
-      padding-top: 1rem !important;
+      padding-top: 2rem !important;
     }
 
     /* Remove negative margins from hero logo that cause overlap with header */
+    /* Target the logo container div specifically */
     .section-hero > div > div > div[style*="marginTop"],
     .section-hero > div > div > div[style*="-6.5rem"],
     .section-hero > div > div > div {
       margin-top: 0 !important;
       margin-bottom: 0 !important;
+    }
+
+    /* Specifically target logo container with negative margin on mobile */
+    /* Override inline style with !important */
+    .section-hero .container-custom > div > div[style*="-6.5rem"],
+    .section-hero .container-custom > div > div[style*="marginTop"],
+    .section-hero .container-custom > div > div {
+      margin-top: 0 !important;
+      margin-bottom: 1rem !important;
+    }
+
+    /* Additional override for any div with negative margin-top */
+    .section-hero div[style*="margin-top: -"],
+    .section-hero div[style*="marginTop: -"] {
+      margin-top: 0 !important;
     }
 
     /* 3️⃣ Prevent Hero Image Cropping - Anchor from top */
