@@ -375,6 +375,7 @@
       width: 100vw !important;
       max-width: 100vw !important;
       height: 100dvh !important;
+      max-height: none !important;
       background: #ffffff !important;
       backdrop-filter: blur(10px) !important;
       display: flex !important;
@@ -432,6 +433,12 @@
       align-items: stretch !important;
       position: relative !important;
       z-index: 1 !important;
+    }
+
+    /* Mobile nav links wrapper - ensure no height constraints */
+    .mobile-nav-links-wrapper {
+      max-height: none !important;
+      overflow-y: auto !important;
     }
 
     /* Ensure header and nav don't clip children */
@@ -535,6 +542,7 @@
       z-index: 10 !important;
       width: 100% !important;
       height: auto !important;
+      max-height: none !important;
       overflow-y: auto !important;
     }
 
