@@ -37,7 +37,7 @@ const Home = () => {
                   src="/logo.png"
                   alt="MenCryToo"
                   className="h-72 sm:h-84 lg:h-96 w-auto pt-10 sm:pt-0"
-                  style={{ backgroundColor: 'transparent', padding: '0', margin: '0', display: 'block', verticalAlign: 'middle', lineHeight: '0', transform: 'scale(0.75)' }}
+                  style={{ backgroundColor: 'transparent', margin: '0', display: 'block', verticalAlign: 'middle', lineHeight: '0', transform: 'scale(0.75)' }}
                   onError={(e) => {
                     if (e.target.src.includes('/logo.png')) {
                       e.target.src = '/logo.svg';
