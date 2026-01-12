@@ -190,12 +190,25 @@
 
   /* Mobile-only layout & spacing adjustments */
   @media (max-width: 768px) {
-    /* Remove height: 100vh and overflow: hidden from parent containers */
-    /* Ensure App wrapper uses content-driven height */
-    #root > div {
+    /* ============================================
+       STEP 2 — Remove Mobile Height Constraints at the ROOT
+       ============================================ */
+    html,
+    body,
+    main,
+    #root,
+    #root > div,
+    #__next,
+    #app,
+    .layout,
+    .page,
+    .page-wrapper,
+    .min-h-screen {
       height: auto !important;
-      min-height: auto !important;
-      overflow: visible !important;
+      min-height: unset !important;
+      max-height: none !important;
+      overflow-x: hidden !important;
+      overflow-y: visible !important;
     }
 
     /* Remove height constraints from hero content wrapper */
@@ -315,13 +328,22 @@
     }
 
     /* ============================================
-       FIX 2 — Mobile Navigation Dropdown Clipping
-       Remove fixed heights, use max-height with overflow-y: auto
+       STEP 3 — Fix Mobile Navigation (Root Cause)
        ============================================ */
-    .mobile-menu,
+    nav,
+    .nav,
     .mobile-nav,
     .nav-menu,
-    .dropdown-menu {
+    .menu,
+    .mobile-menu {
+      height: auto !important;
+      max-height: 100dvh !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Mobile menu overlay - fixed positioning but content-driven height */
+    .mobile-menu {
       position: fixed !important;
       top: 0 !important;
       left: 0 !important;
@@ -329,15 +351,13 @@
       bottom: 0 !important;
       width: 100vw !important;
       max-width: 100vw !important;
-      /* Remove fixed height - use max-height instead */
+      /* Use 100dvh instead of 100vh */
       height: auto !important;
-      max-height: 100vh !important;
-      max-height: calc(var(--vh, 1vh) * 100) !important;
+      max-height: 100dvh !important;
       background: #ffffff !important;
       backdrop-filter: blur(10px) !important;
       display: flex !important;
       flex-direction: column !important;
-      /* Allow scrolling if content exceeds viewport */
       overflow-y: auto !important;
       overflow-x: hidden !important;
       z-index: 99998 !important;
@@ -379,10 +399,9 @@
       flex-direction: column !important;
       width: 100% !important;
       flex: 1 !important;
-      /* Remove fixed height - use max-height with auto scrolling */
+      /* Use 100dvh instead of 100vh */
       height: auto !important;
-      max-height: 100vh !important;
-      max-height: calc(var(--vh, 1vh) * 100) !important;
+      max-height: 100dvh !important;
       overflow-y: auto !important;
       overflow-x: hidden !important;
       padding-top: var(--header-height) !important;
@@ -400,6 +419,7 @@
     header,
     nav {
       overflow: visible !important;
+      height: auto !important;
     }
 
     /* Ensure all navigation links are visible - no clipping */
@@ -496,7 +516,7 @@
       z-index: 10 !important;
       width: 100% !important;
       height: auto !important;
-      max-height: 100vh !important;
+      max-height: 100dvh !important;
       overflow-y: auto !important;
     }
 
@@ -518,16 +538,20 @@
     }
 
     /* ============================================
-       FIX 1 — Main Page Logo Cut Off (Mobile)
-       Remove height and overflow constraints
+       STEP 4 — Fix Main Page Logo Clipping (Root Cause)
        ============================================ */
-    .section-hero,
     .hero,
-    .hero-section {
+    .hero-section,
+    .home-hero,
+    .section-hero {
+      height: auto !important;
+      min-height: unset !important;
+      max-height: none !important;
+      overflow: visible !important;
       padding-top: var(--header-height) !important;
       margin-top: 0 !important;
       margin-bottom: 0;
-      overflow-x: hidden;
+      overflow-x: hidden !important;
       overflow-y: visible !important;
     }
 
@@ -535,12 +559,12 @@
     .section-hero > div,
     .hero > div,
     .hero-section > div,
-    .hero-content-wrapper {
-      /* Remove fixed height - use content-driven height */
+    .hero-content-wrapper,
+    .home-hero > div {
+      /* Content-driven height, no viewport constraints */
       height: auto !important;
       min-height: unset !important;
       max-height: none !important;
-      /* Remove overflow hidden - allow content to display */
       overflow: visible !important;
       margin-top: 0 !important;
       padding-top: 0 !important;
@@ -550,13 +574,17 @@
     /* Remove overflow-hidden class override */
     .section-hero > div.overflow-hidden,
     .hero > div.overflow-hidden,
+    .hero-section > div.overflow-hidden,
+    .home-hero > div.overflow-hidden,
     .hero-content-wrapper.overflow-hidden {
       overflow: visible !important;
     }
 
-    /* Override Tailwind min-h-[85vh] utility on mobile */
+    /* Override Tailwind min-h utilities on mobile */
     .hero-content-wrapper[class*="min-h"],
-    .section-hero > div[class*="min-h"] {
+    .section-hero > div[class*="min-h"],
+    .hero > div[class*="min-h"],
+    .home-hero > div[class*="min-h"] {
       min-height: unset !important;
     }
 
