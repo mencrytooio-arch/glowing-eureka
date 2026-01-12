@@ -306,28 +306,27 @@
       left: 0 !important;
       right: 0 !important;
       width: 100vw !important;
+      max-width: 100vw !important;
       height: calc((var(--vh, 1vh) * 100) - var(--header-height)) !important;
-      background: rgba(255, 255, 255, 1) !important;
+      background: #ffffff !important;
       backdrop-filter: blur(10px) !important;
       display: flex !important;
       flex-direction: column !important;
       overflow: hidden !important;
-      z-index: 10000 !important;
+      z-index: 99999 !important;
       padding: 0 !important;
       margin: 0 !important;
       /* Ensure menu is above all content */
       isolation: isolate !important;
       /* Remove any parent constraints */
       transform: translateZ(0) !important;
+      /* Ensure menu covers everything */
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1) !important;
     }
 
     /* Minimal, subtle transition for menu open/close animation */
-    .mobile-menu[aria-hidden="false"] {
+    .mobile-menu {
       animation: menuFadeIn 180ms ease-out forwards;
-    }
-
-    .mobile-menu[aria-hidden="true"] {
-      animation: menuFadeOut 150ms ease-in forwards;
     }
 
     @keyframes menuFadeIn {
@@ -339,31 +338,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    @keyframes menuFadeOut {
-      from {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      to {
-        opacity: 0;
-        transform: translateY(-8px);
-      }
-    }
-
-    /* Show menu when open */
-    .mobile-menu[style*="display: flex"] {
-      display: flex !important;
-    }
-
-    /* Prevent pointer events when menu is closed */
-    .mobile-menu[aria-hidden="true"] {
-      pointer-events: none !important;
-    }
-
-    .mobile-menu[aria-hidden="false"] {
-      pointer-events: auto !important;
     }
 
     /* 5️⃣ Ensure Menu Shows ALL Links - Full height, evenly distributed, no scrolling */
@@ -420,11 +394,23 @@
     }
 
     /* Ensure close button is visible */
+    .mobile-menu-close,
     .mobile-menu button[aria-label="Close menu"] {
       position: absolute !important;
       top: 1rem !important;
       right: 1.5rem !important;
-      z-index: 10000 !important;
+      background: none !important;
+      border: none !important;
+      cursor: pointer !important;
+      padding: 8px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      font-size: 24px !important;
+      color: var(--color-text-primary) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 100000 !important;
       visibility: visible !important;
       opacity: 1 !important;
     }
@@ -530,8 +516,16 @@
 
     /* Ensure hero logo container has proper spacing - override negative margin */
     .section-hero .hero-logo-container,
-    .section-hero .container-custom > div > div:first-child {
-      margin-top: 2rem !important;
+    .section-hero .container-custom > div > div:first-child,
+    .section-hero .container-custom > div > div.hero-logo-container {
+      margin-top: 3rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    /* Aggressive override for any inline styles on hero logo */
+    .section-hero .hero-logo-container[style*="margin"],
+    .section-hero .container-custom > div > div[style*="margin"] {
+      margin-top: 3rem !important;
       margin-bottom: 1.5rem !important;
     }
 

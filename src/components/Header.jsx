@@ -249,91 +249,74 @@ const Header = () => {
               Enquiry Form
             </Link>
           </div>
-
-          {/* Mobile Menu (Hidden by default, shown when isMenuOpen is true) */}
-          <div
-            ref={menuRef}
-            id="mobile-menu"
-            className="mobile-menu"
-            aria-hidden={!isMenuOpen}
-            style={{
-              display: isMenuOpen ? 'flex' : 'none',
-            }}
-          >
-            {/* Close Button */}
-            <button
-              onClick={closeMenu}
-              aria-label="Close menu"
-              style={{
-                position: 'absolute',
-                top: '1rem',
-                right: '1.5rem',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '8px',
-                minWidth: '44px',
-                minHeight: '44px',
-                fontSize: '24px',
-                color: 'var(--color-text-primary)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                zIndex: 10000,
-              }}
-            >
-              ✕
-            </button>
-
-            {/* Mobile Navigation Links - Full height, all items visible */}
-            <nav 
-              aria-label="Mobile navigation"
-              className="mobile-nav-links-wrapper"
-            >
-              <Link
-                to="/"
-                onClick={closeMenu}
-                className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}
-                aria-current={isActive('/') ? 'page' : undefined}
-              >
-                Home
-              </Link>
-              <Link
-                to="/shop"
-                onClick={closeMenu}
-                className={`mobile-nav-link ${isActive('/shop') ? 'active' : ''}`}
-                aria-current={isActive('/shop') ? 'page' : undefined}
-              >
-                Shop
-              </Link>
-              <Link
-                to="/about"
-                onClick={closeMenu}
-                className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`}
-                aria-current={isActive('/about') ? 'page' : undefined}
-              >
-                About
-              </Link>
-              <Link
-                to="/how-we-work"
-                onClick={closeMenu}
-                className={`mobile-nav-link ${isActive('/how-we-work') ? 'active' : ''}`}
-                aria-current={isActive('/how-we-work') ? 'page' : undefined}
-              >
-                How We Work
-              </Link>
-              <Link
-                to="/enquiry-form"
-                onClick={closeMenu}
-                className={`mobile-nav-link ${isActive('/enquiry-form') ? 'active' : ''}`}
-                aria-current={isActive('/enquiry-form') ? 'page' : undefined}
-              >
-                Enquiry Form
-              </Link>
-            </nav>
-          </div>
         </div>
       </nav>
+
+      {/* Mobile Menu - Moved outside nested structure for proper positioning */}
+      {isMenuOpen && (
+        <div
+          ref={menuRef}
+          id="mobile-menu"
+          className="mobile-menu"
+          aria-hidden={!isMenuOpen}
+        >
+          {/* Close Button */}
+          <button
+            onClick={closeMenu}
+            aria-label="Close menu"
+            className="mobile-menu-close"
+          >
+            ✕
+          </button>
+
+          {/* Mobile Navigation Links - Full height, all items visible */}
+          <nav 
+            aria-label="Mobile navigation"
+            className="mobile-nav-links-wrapper"
+          >
+            <Link
+              to="/"
+              onClick={closeMenu}
+              className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}
+              aria-current={isActive('/') ? 'page' : undefined}
+            >
+              Home
+            </Link>
+            <Link
+              to="/shop"
+              onClick={closeMenu}
+              className={`mobile-nav-link ${isActive('/shop') ? 'active' : ''}`}
+              aria-current={isActive('/shop') ? 'page' : undefined}
+            >
+              Shop
+            </Link>
+            <Link
+              to="/about"
+              onClick={closeMenu}
+              className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`}
+              aria-current={isActive('/about') ? 'page' : undefined}
+            >
+              About
+            </Link>
+            <Link
+              to="/how-we-work"
+              onClick={closeMenu}
+              className={`mobile-nav-link ${isActive('/how-we-work') ? 'active' : ''}`}
+              aria-current={isActive('/how-we-work') ? 'page' : undefined}
+            >
+              How We Work
+            </Link>
+            <Link
+              to="/enquiry-form"
+              onClick={closeMenu}
+              className={`mobile-nav-link ${isActive('/enquiry-form') ? 'active' : ''}`}
+              aria-current={isActive('/enquiry-form') ? 'page' : undefined}
+            >
+              Enquiry Form
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
