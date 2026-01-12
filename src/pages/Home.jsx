@@ -32,7 +32,7 @@ const Home = () => {
           <div className="relative z-10 container-custom py-20 sm:py-24">
             <div className="max-w-4xl mx-auto text-center space-y-10 sm:space-y-12">
               {/* Logo - Transparent background, 3x size, not clickable */}
-              <div className="flex justify-center" style={{ margin: '0', padding: '0', marginTop: '-6.5rem', marginBottom: '-5rem', paddingTop: '0', paddingBottom: '0', lineHeight: '0', display: 'flex', alignItems: 'center' }}>
+              <div className="flex justify-center hero-logo-container" style={{ margin: '0', padding: '0', paddingTop: '0', paddingBottom: '0', lineHeight: '0', display: 'flex', alignItems: 'center' }}>
                 <img
                   src="/logo.png"
                   alt="MenCryToo"

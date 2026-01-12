@@ -289,111 +289,44 @@ const Header = () => {
             <nav 
               aria-label="Mobile navigation"
               className="mobile-nav-links-wrapper"
-              style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                width: '100%', 
-                flex: '1',
-                padding: '0',
-              }}
             >
               <Link
                 to="/"
                 onClick={closeMenu}
-                className="mobile-nav-link"
-                style={{
-                  padding: '16px 0',
-                  fontSize: '18px',
-                  fontFamily: 'inherit',
-                  fontWeight: '300',
-                  letterSpacing: '0.05em',
-                  color: isActive('/') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
-                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-                  textDecoration: 'none',
-                  minHeight: '44px',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
+                className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}
+                aria-current={isActive('/') ? 'page' : undefined}
               >
                 Home
               </Link>
               <Link
                 to="/shop"
                 onClick={closeMenu}
-                className="mobile-nav-link"
-                style={{
-                  padding: '16px 0',
-                  fontSize: '18px',
-                  fontFamily: 'inherit',
-                  fontWeight: '300',
-                  letterSpacing: '0.05em',
-                  color: isActive('/shop') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
-                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-                  textDecoration: 'none',
-                  minHeight: '44px',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
+                className={`mobile-nav-link ${isActive('/shop') ? 'active' : ''}`}
+                aria-current={isActive('/shop') ? 'page' : undefined}
               >
                 Shop
               </Link>
               <Link
                 to="/about"
                 onClick={closeMenu}
-                className="mobile-nav-link"
-                style={{
-                  padding: '16px 0',
-                  fontSize: '18px',
-                  fontFamily: 'inherit',
-                  fontWeight: '300',
-                  letterSpacing: '0.05em',
-                  color: isActive('/about') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
-                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-                  textDecoration: 'none',
-                  minHeight: '44px',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
+                className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`}
+                aria-current={isActive('/about') ? 'page' : undefined}
               >
                 About
               </Link>
               <Link
                 to="/how-we-work"
                 onClick={closeMenu}
-                className="mobile-nav-link"
-                style={{
-                  padding: '16px 0',
-                  fontSize: '18px',
-                  fontFamily: 'inherit',
-                  fontWeight: '300',
-                  letterSpacing: '0.05em',
-                  color: isActive('/how-we-work') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
-                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-                  textDecoration: 'none',
-                  minHeight: '44px',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
+                className={`mobile-nav-link ${isActive('/how-we-work') ? 'active' : ''}`}
+                aria-current={isActive('/how-we-work') ? 'page' : undefined}
               >
                 How We Work
               </Link>
               <Link
                 to="/enquiry-form"
                 onClick={closeMenu}
-                className="mobile-nav-link"
-                style={{
-                  padding: '16px 0',
-                  fontSize: '18px',
-                  fontFamily: 'inherit',
-                  fontWeight: '300',
-                  letterSpacing: '0.05em',
-                  color: isActive('/enquiry-form') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
-                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-                  textDecoration: 'none',
-                  minHeight: '44px',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
+                className={`mobile-nav-link ${isActive('/enquiry-form') ? 'active' : ''}`}
+                aria-current={isActive('/enquiry-form') ? 'page' : undefined}
               >
                 Enquiry Form
               </Link>
