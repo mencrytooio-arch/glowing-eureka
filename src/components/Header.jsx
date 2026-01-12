@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 
 /**
@@ -87,6 +88,7 @@ const Header = () => {
   };
 
   return (
+    <>
     <header className="backdrop-blur-sm sticky top-0 z-50 border-b header-mobile" style={{ borderColor: 'var(--color-accent-secondary)' + '33', backgroundColor: 'rgba(255, 255, 255, 0.95)', margin: '0', padding: '0', lineHeight: '0' }}>
       <nav className="container-custom py-0" style={{ marginTop: '0', marginBottom: '0', paddingTop: '0', paddingBottom: '0', lineHeight: '0' }}>
         <div className="flex items-center justify-between header-nav-wrapper" style={{ marginTop: '0', marginBottom: '0', paddingTop: '0', paddingBottom: '0', lineHeight: '0' }}>
@@ -251,73 +253,73 @@ const Header = () => {
           </div>
         </div>
       </nav>
-
-      {/* Mobile Menu - Moved outside nested structure for proper positioning */}
-      {isMenuOpen && (
-        <div
-          ref={menuRef}
-          id="mobile-menu"
-          className="mobile-menu"
-          aria-hidden={!isMenuOpen}
-        >
-          {/* Close Button */}
-          <button
-            onClick={closeMenu}
-            aria-label="Close menu"
-            className="mobile-menu-close"
-          >
-            ✕
-          </button>
-
-          {/* Mobile Navigation Links - Full height, all items visible */}
-          <nav 
-            aria-label="Mobile navigation"
-            className="mobile-nav-links-wrapper"
-          >
-            <Link
-              to="/"
-              onClick={closeMenu}
-              className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}
-              aria-current={isActive('/') ? 'page' : undefined}
-            >
-              Home
-            </Link>
-            <Link
-              to="/shop"
-              onClick={closeMenu}
-              className={`mobile-nav-link ${isActive('/shop') ? 'active' : ''}`}
-              aria-current={isActive('/shop') ? 'page' : undefined}
-            >
-              Shop
-            </Link>
-            <Link
-              to="/about"
-              onClick={closeMenu}
-              className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`}
-              aria-current={isActive('/about') ? 'page' : undefined}
-            >
-              About
-            </Link>
-            <Link
-              to="/how-we-work"
-              onClick={closeMenu}
-              className={`mobile-nav-link ${isActive('/how-we-work') ? 'active' : ''}`}
-              aria-current={isActive('/how-we-work') ? 'page' : undefined}
-            >
-              How We Work
-            </Link>
-            <Link
-              to="/enquiry-form"
-              onClick={closeMenu}
-              className={`mobile-nav-link ${isActive('/enquiry-form') ? 'active' : ''}`}
-              aria-current={isActive('/enquiry-form') ? 'page' : undefined}
-            >
-              Enquiry Form
-            </Link>
-          </nav>
-        </div>
-      )}
     </header>
+    {typeof document !== 'undefined' && isMenuOpen && createPortal(
+      <div
+        ref={menuRef}
+        id="mobile-menu"
+        className="mobile-menu"
+        aria-hidden={!isMenuOpen}
+      >
+        {/* Close Button */}
+        <button
+          onClick={closeMenu}
+          aria-label="Close menu"
+          className="mobile-menu-close"
+        >
+          ✕
+        </button>
+
+        {/* Mobile Navigation Links - Full height, all items visible */}
+        <nav 
+          aria-label="Mobile navigation"
+          className="mobile-nav-links-wrapper"
+        >
+          <Link
+            to="/"
+            onClick={closeMenu}
+            className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}
+            aria-current={isActive('/') ? 'page' : undefined}
+          >
+            Home
+          </Link>
+          <Link
+            to="/shop"
+            onClick={closeMenu}
+            className={`mobile-nav-link ${isActive('/shop') ? 'active' : ''}`}
+            aria-current={isActive('/shop') ? 'page' : undefined}
+          >
+            Shop
+          </Link>
+          <Link
+            to="/about"
+            onClick={closeMenu}
+            className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`}
+            aria-current={isActive('/about') ? 'page' : undefined}
+          >
+            About
+          </Link>
+          <Link
+            to="/how-we-work"
+            onClick={closeMenu}
+            className={`mobile-nav-link ${isActive('/how-we-work') ? 'active' : ''}`}
+            aria-current={isActive('/how-we-work') ? 'page' : undefined}
+          >
+            How We Work
+          </Link>
+          <Link
+            to="/enquiry-form"
+            onClick={closeMenu}
+            className={`mobile-nav-link ${isActive('/enquiry-form') ? 'active' : ''}`}
+            aria-current={isActive('/enquiry-form') ? 'page' : undefined}
+          >
+            Enquiry Form
+          </Link>
+        </nav>
+      </div>,
+      document.body
+    )}
+    </>
   );
 };
 
