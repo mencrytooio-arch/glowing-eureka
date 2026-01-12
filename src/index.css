@@ -299,8 +299,14 @@
       transform: rotate(-45deg) translate(6px, -6px);
     }
 
-    /* 4️⃣ Mobile Menu - Cover ENTIRE page including behind header */
-    .mobile-menu {
+    /* ============================================
+       FIX 2 — Mobile Navigation Dropdown Clipping
+       Remove fixed heights, use max-height with overflow-y: auto
+       ============================================ */
+    .mobile-menu,
+    .mobile-nav,
+    .nav-menu,
+    .dropdown-menu {
       position: fixed !important;
       top: 0 !important;
       left: 0 !important;
@@ -308,7 +314,8 @@
       bottom: 0 !important;
       width: 100vw !important;
       max-width: 100vw !important;
-      /* Use max-height instead of fixed height to prevent clipping */
+      /* Remove fixed height - use max-height instead */
+      height: auto !important;
       max-height: 100vh !important;
       max-height: calc(var(--vh, 1vh) * 100) !important;
       background: #ffffff !important;
@@ -321,11 +328,8 @@
       z-index: 99998 !important;
       padding: 0 !important;
       margin: 0 !important;
-      /* Ensure menu is above all content except header */
       isolation: isolate !important;
-      /* Remove any parent constraints */
       transform: translateZ(0) !important;
-      /* Ensure menu covers everything */
       box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1) !important;
     }
 
@@ -351,34 +355,36 @@
       }
     }
 
-    /* 5️⃣ Ensure Menu Shows ALL Links - Allow expansion, no clipping */
+    /* Mobile nav menu container - remove fixed heights */
     .mobile-menu nav,
-    .mobile-menu .mobile-nav-links-wrapper {
+    .mobile-menu .mobile-nav-links-wrapper,
+    .mobile-nav,
+    .nav-menu {
       display: flex !important;
       flex-direction: column !important;
       width: 100% !important;
       flex: 1 !important;
-      /* Allow content to expand and scroll if needed */
+      /* Remove fixed height - use max-height with auto scrolling */
+      height: auto !important;
+      max-height: 100vh !important;
+      max-height: calc(var(--vh, 1vh) * 100) !important;
       overflow-y: auto !important;
-      overflow-x: visible !important;
+      overflow-x: hidden !important;
       padding-top: var(--header-height) !important;
       padding-bottom: 2rem !important;
       padding-left: 0 !important;
       padding-right: 0 !important;
       gap: 0 !important;
-      /* Remove fixed height - allow natural expansion */
-      min-height: calc(100vh - var(--header-height)) !important;
-      min-height: calc((var(--vh, 1vh) * 100) - var(--header-height)) !important;
-      /* Don't restrict height - allow content to determine size */
-      height: auto !important;
-      max-height: calc(100vh - var(--header-height)) !important;
-      max-height: calc((var(--vh, 1vh) * 100) - var(--header-height)) !important;
-      /* Distribute items evenly across available space */
       justify-content: flex-start !important;
       align-items: stretch !important;
-      /* Ensure nav is visible and above background */
       position: relative !important;
       z-index: 1 !important;
+    }
+
+    /* Ensure header and nav don't clip children */
+    header,
+    nav {
+      overflow: visible !important;
     }
 
     /* Ensure all navigation links are visible - no clipping */
@@ -468,13 +474,15 @@
       overflow: visible !important;
     }
 
-    /* Ensure mobile menu content is above background */
+    /* Ensure mobile menu content is above background - remove height constraint */
     .mobile-menu > nav,
     .mobile-menu > .mobile-nav-links-wrapper {
       position: relative !important;
       z-index: 10 !important;
       width: 100% !important;
-      height: 100% !important;
+      height: auto !important;
+      max-height: 100vh !important;
+      overflow-y: auto !important;
     }
 
     /* Force nav links to be visible - override any hiding */
@@ -494,86 +502,86 @@
       height: auto;
     }
 
-    /* Fix Homepage Hero Being Cut Off by Fixed Header (Mobile Only) */
-    /* 1. Identify header height: var(--header-height) = 96px */
-    /* 2. Apply padding-top equal to header height to push hero below header */
-    .section-hero {
+    /* ============================================
+       FIX 1 — Main Page Logo Cut Off (Mobile)
+       Remove height and overflow constraints
+       ============================================ */
+    .section-hero,
+    .hero,
+    .hero-section {
       padding-top: var(--header-height) !important;
       margin-top: 0 !important;
       margin-bottom: 0;
       overflow-x: hidden;
-      /* Ensure hero section doesn't clip content */
       overflow-y: visible !important;
     }
 
-    /* Ensure hero inner container doesn't overflow behind header */
-    .section-hero > div {
+    /* Remove height and overflow constraints from hero containers */
+    .section-hero > div,
+    .hero > div,
+    .hero-section > div {
+      height: auto !important;
+      min-height: unset !important;
+      max-height: none !important;
+      overflow: visible !important;
       margin-top: 0 !important;
       padding-top: 0 !important;
-      /* Ensure absolute positioned image respects the hero padding */
       position: relative;
-      /* Remove overflow hidden to prevent clipping */
+    }
+
+    /* Remove overflow-hidden class override */
+    .section-hero > div.overflow-hidden,
+    .hero > div.overflow-hidden {
       overflow: visible !important;
     }
 
-    /* Hero image background container - ensure it doesn't overflow above */
-    .section-hero > div > div[class*="absolute"] {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-
-    /* Prevent hero content from being clipped - ensure full visibility */
-    .section-hero .container-custom {
+    /* Hero content container - no clipping */
+    .section-hero .container-custom,
+    .hero .container-custom {
       margin-top: 0 !important;
       padding-top: 2rem !important;
-      /* Remove overflow hidden */
       overflow: visible !important;
+      height: auto !important;
+      min-height: unset !important;
+      max-height: none !important;
     }
 
-    /* Hero Logo Container - Ensure sufficient height and no clipping */
-    .section-hero .hero-logo-container {
-      /* Remove overflow hidden - allow logo to display fully */
-      overflow: visible !important;
-      /* Ensure sufficient height for logo */
-      min-height: auto !important;
+    /* Hero logo container - remove all constraints */
+    .section-hero .hero-logo-container,
+    .hero .hero-logo-container,
+    .hero-logo,
+    .logo-container {
       height: auto !important;
-      /* Remove any height restrictions */
+      min-height: unset !important;
       max-height: none !important;
+      overflow: visible !important;
       margin-top: 2rem !important;
       margin-bottom: 2rem !important;
-      /* Ensure container doesn't clip */
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
     }
 
-    /* Override overflow-hidden on hero section div for logo visibility */
-    .section-hero > div.overflow-hidden {
-      overflow: visible !important;
-    }
-
-    /* Ensure hero content container doesn't clip logo */
-    .section-hero .container-custom > div {
-      overflow: visible !important;
-    }
-
-    /* Hero Logo Image - Responsive scaling, maintain aspect ratio */
-    .section-hero .hero-logo-container img {
-      /* Responsive scaling */
+    /* Hero logo image - responsive, no clipping */
+    .section-hero .hero-logo-container img,
+    .hero .hero-logo-container img,
+    .hero-logo img,
+    .logo-container img,
+    .section-hero img,
+    .hero img {
       max-width: 100% !important;
       height: auto !important;
-      /* Maintain aspect ratio */
-      object-fit: contain !important;
-      /* Don't crop or mask */
-      overflow: visible !important;
-      /* Remove any transform that might cause clipping */
-      transform: scale(0.75) !important;
-      /* Ensure logo is fully visible */
       display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
+      overflow: visible !important;
+    }
+
+    /* Ensure hero content wrapper doesn't clip */
+    .section-hero .container-custom > div,
+    .hero .container-custom > div {
+      overflow: visible !important;
+      height: auto !important;
+      min-height: unset !important;
+      max-height: none !important;
     }
 
     /* Remove negative margins from hero logo that cause overlap with header */
