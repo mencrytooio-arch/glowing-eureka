@@ -47,7 +47,8 @@
   /* Section base - full width, margin collapse prevention */
   .section {
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   /* Section inner - constrained content width with horizontal centering */
@@ -192,6 +193,7 @@
   @media (max-width: 768px) {
     /* ============================================
        STEP 2 — Remove Mobile Height Constraints at the ROOT
+       Remove height: 100vh and overflow: hidden from top-level layout container
        ============================================ */
     html,
     body,
@@ -203,12 +205,34 @@
     .layout,
     .page,
     .page-wrapper,
-    .min-h-screen {
+    .min-h-screen,
+    [class*="min-h-screen"],
+    [class*="flex"][class*="flex-col"] {
       height: auto !important;
       min-height: unset !important;
       max-height: none !important;
       overflow-x: hidden !important;
       overflow-y: visible !important;
+    }
+
+    /* Remove overflow: hidden from sections - make ALL sections content-driven */
+    .section,
+    .section-hero,
+    .section-impact,
+    .section-email {
+      overflow-x: hidden !important;
+      overflow-y: visible !important;
+      height: auto !important;
+      min-height: unset !important;
+      max-height: none !important;
+    }
+
+    /* Ensure Router and App wrapper containers are content-driven */
+    [class*="Router"],
+    #root > div > div {
+      height: auto !important;
+      min-height: unset !important;
+      overflow: visible !important;
     }
 
     /* Remove height constraints from hero content wrapper */
