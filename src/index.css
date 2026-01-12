@@ -190,6 +190,21 @@
 
   /* Mobile-only layout & spacing adjustments */
   @media (max-width: 768px) {
+    /* Remove height: 100vh and overflow: hidden from parent containers */
+    /* Ensure App wrapper uses content-driven height */
+    #root > div {
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+    }
+
+    /* Remove height constraints from hero content wrapper */
+    .hero-content-wrapper {
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+    }
 
     /* ============================================
        🔴 DIAGNOSTIC: Red semi-transparent backgrounds (Mobile Portrait Only)
@@ -519,10 +534,13 @@
     /* Remove height and overflow constraints from hero containers */
     .section-hero > div,
     .hero > div,
-    .hero-section > div {
+    .hero-section > div,
+    .hero-content-wrapper {
+      /* Remove fixed height - use content-driven height */
       height: auto !important;
       min-height: unset !important;
       max-height: none !important;
+      /* Remove overflow hidden - allow content to display */
       overflow: visible !important;
       margin-top: 0 !important;
       padding-top: 0 !important;
@@ -531,8 +549,15 @@
 
     /* Remove overflow-hidden class override */
     .section-hero > div.overflow-hidden,
-    .hero > div.overflow-hidden {
+    .hero > div.overflow-hidden,
+    .hero-content-wrapper.overflow-hidden {
       overflow: visible !important;
+    }
+
+    /* Override Tailwind min-h-[85vh] utility on mobile */
+    .hero-content-wrapper[class*="min-h"],
+    .section-hero > div[class*="min-h"] {
+      min-height: unset !important;
     }
 
     /* Hero content container - no clipping */

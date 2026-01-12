@@ -11,7 +11,7 @@ const Home = () => {
     <>
       {/* Hero Section */}
       <section className="section section-hero">
-        <div className="relative min-h-[85vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: 'var(--color-background)' }}>
+        <div className="relative hero-content-wrapper flex items-center justify-center" style={{ backgroundColor: 'var(--color-background)' }}>
           {/* Hero Image Background */}
           <div className="absolute inset-0 z-0">
             <img
