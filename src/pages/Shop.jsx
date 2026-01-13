@@ -122,7 +122,9 @@ const Shop = () => {
                 loop
                 playsInline
               >
-                <source src="/brand-video.mp4" type="video/mp4" />
+                {/* For production: Upload video to Cloudinary and set VITE_BRAND_VIDEO_URL env var */}
+                {/* See VIDEO_HOSTING_SETUP.md for instructions */}
+                <source src={import.meta.env.VITE_BRAND_VIDEO_URL || "/brand-video.mp4"} type="video/mp4" />
               </video>
             </div>
           </div>
