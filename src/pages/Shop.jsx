@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 /**
  * Shop Page
@@ -35,13 +35,6 @@ const products = [
 
 const Shop = () => {
   const videoRef = useRef(null);
-
-  // Force video reload to bypass browser cache
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-    }
-  }, []);
 
   return (
     <main style={{ backgroundColor: 'var(--color-background)' }}>
@@ -129,7 +122,7 @@ const Shop = () => {
                 loop
                 playsInline
               >
-                <source src={`/brand-video.mp4?v=${new Date().getTime()}`} type="video/mp4" />
+                <source src="/brand-video.mp4" type="video/mp4" />
               </video>
             </div>
           </div>

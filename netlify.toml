@@ -19,4 +19,9 @@
   to = "/.netlify/functions/payment-webhook"
   status = 200
 
-
+# Headers for video files
+[[headers]]
+  for = "/*.mp4"
+  [headers.values]
+    Content-Type = "video/mp4"
+    Cache-Control = "public, max-age=31536000, immutable"
