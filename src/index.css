@@ -898,6 +898,23 @@
     }
   }
 
+  /* Desktop-only adjustment: remove gap between impact tracker and email signup */
+  @media (min-width: 1024px) {
+    .section-impact {
+      padding-bottom: 0 !important;
+    }
+
+    .section-email {
+      padding-top: 0 !important;
+    }
+
+    /* Ensure Shop page section has symmetrical padding and no extra spacing */
+    .section.section-spacing {
+      margin-bottom: 0 !important;
+      min-height: auto !important;
+    }
+  }
+
   /* Respect prefers-reduced-motion globally */
   @media (prefers-reduced-motion: reduce) {
     /* Reduce all animations and transitions */
@@ -936,10 +953,3 @@
   }
 }
 
-/* ============================
-   DEBUG LAYOUT OUTLINES
-   REMOVE AFTER DIAGNOSIS
-============================ */
-.debug * {
-  outline: 1px solid red !important;
-}

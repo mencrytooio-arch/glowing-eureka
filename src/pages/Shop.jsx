@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 
 /**
  * Shop Page
@@ -33,9 +34,18 @@ const products = [
 ];
 
 const Shop = () => {
+  const videoRef = useRef(null);
+
+  // Force video reload to bypass browser cache
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, []);
+
   return (
-    <main className="min-h-screen" style={{ backgroundColor: 'var(--color-background)' }}>
-      <section className="section-spacing">
+    <main style={{ backgroundColor: 'var(--color-background)' }}>
+      <section className="section section-spacing lg:pb-20 lg:pt-20 lg:mb-0 lg:min-h-0">
         <div className="container-custom">
           {/* Page Header */}
           <div className="text-center mb-16 sm:mb-20">
@@ -106,6 +116,22 @@ const Shop = () => {
                 </div>
               </Link>
             ))}
+          </div>
+
+          {/* Brand video section – desktop only */}
+          <div className="hidden lg:block w-full mt-24">
+            <div className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-sm">
+              <video
+                ref={videoRef}
+                className="w-full h-[360px] object-cover object-[center_35%] opacity-90"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src={`/brand-video.mp4?v=${new Date().getTime()}`} type="video/mp4" />
+              </video>
+            </div>
           </div>
         </div>
       </section>

@@ -261,15 +261,6 @@ const Header = () => {
         className="mobile-menu"
         aria-hidden={!isMenuOpen}
       >
-        {/* Close Button */}
-        <button
-          onClick={closeMenu}
-          aria-label="Close menu"
-          className="mobile-menu-close"
-        >
-          ✕
-        </button>
-
         {/* Mobile Navigation Links - Full height, all items visible */}
         <nav 
           aria-label="Mobile navigation"

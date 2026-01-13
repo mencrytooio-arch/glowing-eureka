@@ -55,7 +55,7 @@ const EmailSignup = () => {
 
   return (
     <div 
-      className="w-full py-12 md:py-16"
+      className="w-full py-12 md:py-16 lg:pt-0"
       style={{ backgroundColor: 'var(--color-background)', marginTop: '0' }}
     >
       <div className="w-full">

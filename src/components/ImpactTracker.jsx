@@ -169,7 +169,7 @@ const ImpactTracker = () => {
 
   return (
     <div 
-      className="min-h-[600px] w-full flex items-center justify-center py-12 md:py-16" 
+      className="min-h-[600px] lg:min-h-0 lg:h-auto w-full flex items-center justify-center py-12 md:py-16" 
       style={{ backgroundColor: 'var(--color-background)', color: 'var(--color-text-primary)', marginTop: '0' }}
     >
       <div className="w-full">

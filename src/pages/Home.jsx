@@ -29,15 +29,15 @@ const Home = () => {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 container-custom py-20 sm:py-24">
-            <div className="max-w-4xl mx-auto text-center space-y-10 sm:space-y-12 hero-content-spacing">
+          <div className="relative z-10 container-custom py-20 sm:py-24 lg:pt-0 lg:pb-8">
+            <div className="max-w-4xl mx-auto text-center space-y-10 sm:space-y-12 lg:space-y-4 hero-content-spacing">
               {/* Logo - Transparent background, 3x size, not clickable */}
-              <div className="flex justify-center hero-logo-container" style={{ margin: '0', padding: '0', paddingTop: '0', paddingBottom: '0', lineHeight: '0', display: 'flex', alignItems: 'center' }}>
+              <div className="flex justify-center hero-logo-container" style={{ margin: '0px', padding: '0px', lineHeight: '0', display: 'flex', alignItems: 'center' }}>
                 <img
                   src="/logo.png"
                   alt="MenCryToo"
                   className="h-72 sm:h-84 lg:h-96 w-auto"
-                  style={{ backgroundColor: 'transparent', padding: '0', margin: '0', display: 'block', verticalAlign: 'middle', lineHeight: '0', transform: 'scale(0.75)' }}
+                  style={{ backgroundColor: 'transparent', padding: '0px', margin: '0px', display: 'block', verticalAlign: 'middle', lineHeight: '0', transform: 'scale(0.75)' }}
                   onError={(e) => {
                     if (e.target.src.includes('/logo.png')) {
                       e.target.src = '/logo.svg';
@@ -113,14 +113,14 @@ const Home = () => {
       </section>
 
       {/* Impact Tracker Section */}
-      <section className="section section-impact">
+      <section className="section section-impact lg:pb-0 lg:mb-0 lg:min-h-0 lg:pt-0 lg:mt-0">
         <div className="section-inner">
           <ImpactTracker />
         </div>
       </section>
 
       {/* Email Signup Section */}
-      <section className="section section-email">
+      <section className="section section-email lg:pt-0 lg:mt-0">
         <div className="section-inner">
           <EmailSignup />
         </div>
