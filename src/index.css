@@ -935,3 +935,11 @@
     }
   }
 }
+
+/* ============================
+   DEBUG LAYOUT OUTLINES
+   REMOVE AFTER DIAGNOSIS
+============================ */
+.debug * {
+  outline: 1px solid red !important;
+}
