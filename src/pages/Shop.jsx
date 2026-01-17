@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 /**
  * Shop Page
@@ -35,6 +35,31 @@ const products = [
 
 const Shop = () => {
   const videoRef = useRef(null);
+  const videoUrl = import.meta.env.VITE_BRAND_VIDEO_URL || "/brand-video.mp4";
+
+  useEffect(() => {
+    // Debug: Log video URL (remove after debugging)
+    console.log('Video URL:', videoUrl);
+    console.log('Env var exists:', !!import.meta.env.VITE_BRAND_VIDEO_URL);
+    
+    if (videoRef.current) {
+      const video = videoRef.current;
+      
+      // Handle video loading errors
+      video.addEventListener('error', (e) => {
+        console.error('Video loading error:', e);
+        console.error('Video src attempted:', videoUrl);
+      });
+      
+      // Handle successful load
+      video.addEventListener('loadeddata', () => {
+        console.log('Video loaded successfully');
+      });
+      
+      // Try to load the video
+      video.load();
+    }
+  }, [videoUrl]);
 
   return (
     <main style={{ backgroundColor: 'var(--color-background)' }}>
@@ -121,10 +146,13 @@ const Shop = () => {
                 muted
                 loop
                 playsInline
+                preload="auto"
+                crossOrigin="anonymous"
               >
                 {/* For production: Upload video to Cloudinary and set VITE_BRAND_VIDEO_URL env var */}
                 {/* See VIDEO_HOSTING_SETUP.md for instructions */}
-                <source src={import.meta.env.VITE_BRAND_VIDEO_URL || "/brand-video.mp4"} type="video/mp4" />
+                <source src={videoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
               </video>
             </div>
           </div>

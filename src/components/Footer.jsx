@@ -67,7 +67,7 @@ const Footer = () => {
             style={{ marginLeft: `${rightMargin}px` }}
           >
             <a
-              href="https://www.instagram.com/mencrytoo.io/"
+              href="https://www.instagram.com/mencrytoo.co/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="MenCryToo on Instagram"

@@ -14,7 +14,14 @@ The brand video (`brand-video.mp4`) is **53MB**, which exceeds Netlify's 10MB li
 2. Click **Upload** → Select your `brand-video.mp4` file
 3. Wait for upload to complete
 4. Click on the uploaded video
-5. Copy the **URL** (looks like: `https://res.cloudinary.com/YOUR-CLOUD-NAME/video/upload/v1234567890/brand-video.mp4`)
+5. **IMPORTANT**: Copy the **URL** from the "URL" field
+   - It should look like: `https://res.cloudinary.com/YOUR-CLOUD-NAME/video/upload/v1234567890/brand-video.mp4`
+   - **DO NOT** use the "Secure URL" or any other URL format
+   - Make sure the URL ends with `.mp4`
+6. For better web delivery, you can add transformations to the URL:
+   - Original: `https://res.cloudinary.com/YOUR-CLOUD-NAME/video/upload/v1234567890/brand-video.mp4`
+   - Optimized: `https://res.cloudinary.com/YOUR-CLOUD-NAME/video/upload/q_auto,f_auto/v1234567890/brand-video.mp4`
+   - Use the optimized version for better performance
 
 ### Step 3: Configure Environment Variable
 1. In Netlify dashboard, go to **Site settings** → **Environment variables**
@@ -24,8 +31,45 @@ The brand video (`brand-video.mp4`) is **53MB**, which exceeds Netlify's 10MB li
 3. **Save**
 
 ### Step 4: Redeploy
-- Push any code change, or trigger a redeploy from Netlify dashboard
+- **IMPORTANT**: After setting the environment variable, you **must** trigger a new deployment:
+  1. Go to Netlify dashboard → **Deploys** tab
+  2. Click **Trigger deploy** → **Clear cache and deploy site**
+  3. Wait for deployment to complete
+- Or push a code change to trigger automatic deployment
 - The video will now load from Cloudinary on production
+
+### Step 5: Verify It Works
+1. Open your Netlify site in a browser
+2. Open browser Developer Tools (F12) → **Console** tab
+3. Navigate to the Shop page
+4. Look for console messages:
+   - `Video URL: https://res.cloudinary.com/...` (should show your Cloudinary URL)
+   - `Video loaded successfully` (confirms video loaded)
+   - If you see errors, check the error message
+
+### Troubleshooting
+
+**Video still doesn't show:**
+1. **Check environment variable is set correctly:**
+   - In Netlify dashboard → Site settings → Environment variables
+   - Verify `VITE_BRAND_VIDEO_URL` exists and has the correct value
+   - Make sure there are no extra spaces or quotes around the URL
+   
+2. **Verify URL format:**
+   - URL should start with `https://res.cloudinary.com/`
+   - URL should end with `.mp4`
+   - Test the URL directly in a browser - it should download or play the video
+   
+3. **Check browser console:**
+   - Open Developer Tools (F12) → Console
+   - Look for error messages about the video
+   - Check Network tab to see if the video request is failing
+   
+4. **Clear cache and redeploy:**
+   - Netlify dashboard → Deploys → Trigger deploy → Clear cache and deploy site
+   
+5. **Test in incognito/private window:**
+   - Browser cache might be interfering
 
 ### Local Development
 - The video will still work locally from `/public/brand-video.mp4`
