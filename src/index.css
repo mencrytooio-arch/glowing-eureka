@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,6 +15,11 @@
   --impact-section-gap: calc(var(--section-gap) * 0.6); /* 40% reduction: 96px × 0.6 = 57.6px */
 }
 
+/* Force Inter font before Tailwind base layer */
+html, body, * {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -21,28 +28,22 @@
   body {
     background-color: var(--color-background);
     color: var(--color-text-primary);
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   /* Typography System - Inter Font */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-  }
-
-  p, body, div, span, a, button, input, textarea, select, label {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.05 !important;
   }
 
   /* Body text defaults */
   p {
-    font-weight: 300;
-    letter-spacing: 0em;
-    line-height: 1.55;
+    font-weight: 300 !important;
+    letter-spacing: 0em !important;
+    line-height: 1.55 !important;
   }
 
   /* Statements (supporting text) */
