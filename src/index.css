@@ -15,7 +15,7 @@
   --impact-section-gap: calc(var(--section-gap) * 0.6); /* 40% reduction: 96px × 0.6 = 57.6px */
 }
 
-/* Force Inter font before Tailwind base layer */
+/* Force Inter font before Tailwind base layer - ensures Inter loads on all elements */
 html, body, * {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
