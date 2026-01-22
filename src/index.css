@@ -21,11 +21,53 @@
   body {
     background-color: var(--color-background);
     color: var(--color-text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography System - Inter Font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  p, body, div, span, a, button, input, textarea, select, label {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Body text defaults */
+  p {
+    font-weight: 300;
+    letter-spacing: 0em;
+    line-height: 1.55;
+  }
+
+  /* Statements (supporting text) */
+  .text-statement {
+    font-weight: 400;
+    letter-spacing: 0em;
+    line-height: 1.4;
+  }
+
+  /* UI elements and buttons */
+  button, .btn, a[role="button"], input[type="button"], input[type="submit"], 
+  a.button, .button, Link[className*="button"] {
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  /* Navigation links */
+  nav a, .nav-link, .mobile-nav-link {
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  /* Impact counters - max weight 500 */
+  .impact-counter, .counter {
+    font-weight: 500;
   }
 }
 
@@ -36,7 +78,9 @@
   
   .text-body {
     color: var(--color-text-primary);
-    @apply leading-relaxed;
+    font-weight: 300;
+    letter-spacing: 0em;
+    line-height: 1.55;
     max-width: 65ch;
   }
   
@@ -156,8 +200,47 @@
   }
   
   .prose-content p {
-    @apply text-lg sm:text-xl leading-comfortable font-normal;
+    @apply text-lg sm:text-xl;
     color: var(--color-text-primary);
+    font-weight: 300;
+    letter-spacing: 0em;
+    line-height: 1.55;
+  }
+
+  .prose-content h3 {
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  /* Typography utility classes for consistent application */
+  .typography-heading {
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  .typography-body {
+    font-weight: 300;
+    letter-spacing: 0em;
+    line-height: 1.55;
+  }
+
+  .typography-statement {
+    font-weight: 300;
+    letter-spacing: 0em;
+    line-height: 1.4;
+  }
+
+  .typography-ui {
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .typography-counter {
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
   }
 
   .footer-inner {
@@ -411,9 +494,9 @@
       width: 100% !important;
       padding: 24px !important;
       font-size: 1.1rem !important;
-      font-family: inherit !important;
-      font-weight: 300 !important;
-      letter-spacing: 0.05em !important;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.04em !important;
       /* Don't use flex: 1 - allow natural sizing */
       flex: 0 0 auto !important;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;

@@ -6,6 +6,26 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      },
+      fontWeight: {
+        light: '300',
+        normal: '400',
+        medium: '500',
+      },
+      letterSpacing: {
+        'heading': '-0.02em',
+        'body': '0em',
+        'ui': '0.04em',
+      },
+      lineHeight: {
+        'heading': '1.05',
+        'body': '1.55',
+        'statement': '1.4',
+        'relaxed': '1.55',
+        'comfortable': '1.4',
+      },
       colors: {
         // Brand color system using CSS variables
         brand: {
@@ -18,10 +38,6 @@ export default {
       },
       maxWidth: {
         'prose': '65ch',
-      },
-      lineHeight: {
-        'relaxed': '1.75',
-        'comfortable': '1.85',
       },
     },
   },

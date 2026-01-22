@@ -49,7 +49,13 @@ const Home = () => {
               </div>
 
               {/* Supporting Line - Matched size and color */}
-              <p className="text-lg sm:text-xl font-light" style={{ color: 'var(--color-text-primary)', opacity: 0.95 }}>
+              <p className="text-lg sm:text-xl" style={{ 
+                color: 'var(--color-text-primary)', 
+                opacity: 0.95,
+                fontWeight: 300,
+                letterSpacing: '0em',
+                lineHeight: '1.4'
+              }}>
                 Wear the change. Every purchase funds counselling for men.
               </p>
 
@@ -58,10 +64,21 @@ const Home = () => {
                 className="max-w-3xl mx-auto space-y-5 backdrop-blur-sm px-8 py-10 sm:px-12 sm:py-12 rounded-sm"
                 style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
               >
-                <p className="text-xl sm:text-2xl font-light leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
+                <p className="text-xl sm:text-2xl" style={{ 
+                  color: 'var(--color-text-primary)',
+                  fontWeight: 300,
+                  letterSpacing: '0em',
+                  lineHeight: '1.55'
+                }}>
                   MenCryToo exists to raise awareness and provide support for men all over the world who are suffering with mental health issues.
                 </p>
-                <p className="text-lg sm:text-xl font-light leading-relaxed" style={{ color: 'var(--color-text-primary)', opacity: 0.9 }}>
+                <p className="text-lg sm:text-xl" style={{ 
+                  color: 'var(--color-text-primary)', 
+                  opacity: 0.9,
+                  fontWeight: 300,
+                  letterSpacing: '0em',
+                  lineHeight: '1.55'
+                }}>
                   All profits from clothing sales are used to fund counselling sessions for those who need them most.
                 </p>
               </div>
@@ -70,10 +87,12 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
                 <Link
                   to="/shop"
-                  className="px-8 py-3 text-sm font-light tracking-wide transition-colors duration-200"
+                  className="px-8 py-3 text-sm transition-colors duration-200"
                   style={{ 
                     backgroundColor: 'var(--color-accent-primary)',
                     color: 'var(--color-background)',
+                    fontWeight: 400,
+                    letterSpacing: '0.04em'
                   }}
                   onMouseEnter={(e) => {
                     e.target.style.backgroundColor = 'var(--color-dark-section)';
@@ -86,11 +105,13 @@ const Home = () => {
                 </Link>
                 <Link
                   to="/how-we-work"
-                  className="px-8 py-3 text-sm font-light tracking-wide transition-colors duration-200"
+                  className="px-8 py-3 text-sm transition-colors duration-200"
                   style={{ 
                     border: '1px solid var(--color-accent-primary)',
                     color: 'var(--color-accent-primary)',
                     backgroundColor: 'transparent',
+                    fontWeight: 400,
+                    letterSpacing: '0.04em'
                   }}
                   onMouseEnter={(e) => {
                     e.target.style.backgroundColor = 'var(--color-background)';
@@ -104,7 +125,13 @@ const Home = () => {
               </div>
 
               {/* Supporting Statement - Matched size and color */}
-              <p className="text-lg sm:text-xl font-light" style={{ color: 'var(--color-text-primary)', opacity: 0.95 }}>
+              <p className="text-lg sm:text-xl" style={{ 
+                color: 'var(--color-text-primary)', 
+                opacity: 0.95,
+                fontWeight: 300,
+                letterSpacing: '0em',
+                lineHeight: '1.4'
+              }}>
                 Clothing with purpose. Transparency by design. Support where it's needed most.
               </p>
             </div>

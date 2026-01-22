@@ -180,16 +180,26 @@ const ImpactTracker = () => {
             <div className="space-y-4">
               {/* Headline */}
               <h1 
-                className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-none"
-                style={{ color: 'var(--color-text-primary)' }}
+                className="text-5xl md:text-6xl lg:text-7xl"
+                style={{ 
+                  color: 'var(--color-text-primary)',
+                  fontWeight: 300,
+                  letterSpacing: '-0.02em',
+                  lineHeight: '1.05'
+                }}
               >
                 Wear the change.
               </h1>
               
               {/* Subtext */}
               <p 
-                className="text-lg md:text-xl font-normal opacity-70"
-                style={{ color: 'var(--color-accent-secondary)' }}
+                className="text-lg md:text-xl opacity-70"
+                style={{ 
+                  color: 'var(--color-accent-secondary)',
+                  fontWeight: 300,
+                  letterSpacing: '0em',
+                  lineHeight: '1.55'
+                }}
               >
                 The difference we have made so far.
               </p>
@@ -199,14 +209,24 @@ const ImpactTracker = () => {
               {/* Amount Raised Section */}
               <div className="text-center">
                 <div 
-                  className="text-4xl md:text-5xl font-light tracking-tight mb-2"
-                  style={{ color: 'var(--color-text-primary)' }}
+                  className="text-4xl md:text-5xl mb-2"
+                  style={{ 
+                    color: 'var(--color-text-primary)',
+                    fontWeight: 500,
+                    letterSpacing: '-0.02em',
+                    lineHeight: '1.05'
+                  }}
                 >
                   {formatCurrency(fundingData.totalAmountRaised)}
                 </div>
                 <div 
-                  className="text-base md:text-lg font-normal opacity-60"
-                  style={{ color: 'var(--color-accent-secondary)' }}
+                  className="text-base md:text-lg opacity-60"
+                  style={{ 
+                    color: 'var(--color-accent-secondary)',
+                    fontWeight: 300,
+                    letterSpacing: '0em',
+                    lineHeight: '1.55'
+                  }}
                 >
                   of {formatCurrency(100000)} goal
                 </div>
@@ -231,14 +251,24 @@ const ImpactTracker = () => {
               {/* Sessions Funded Section */}
               <div className="text-center pt-4">
                 <div 
-                  className="text-3xl md:text-4xl font-light tracking-tight mb-1"
-                  style={{ color: 'var(--color-accent-primary)' }}
+                  className="text-3xl md:text-4xl mb-1"
+                  style={{ 
+                    color: 'var(--color-accent-primary)',
+                    fontWeight: 500,
+                    letterSpacing: '-0.02em',
+                    lineHeight: '1.05'
+                  }}
                 >
                   {fundingData.packagesFundedCount}
                 </div>
                 <div 
-                  className="text-sm md:text-base font-normal opacity-60"
-                  style={{ color: 'var(--color-accent-secondary)' }}
+                  className="text-sm md:text-base opacity-60"
+                  style={{ 
+                    color: 'var(--color-accent-secondary)',
+                    fontWeight: 300,
+                    letterSpacing: '0em',
+                    lineHeight: '1.55'
+                  }}
                 >
                   Counselling Packages Funded
                 </div>
@@ -314,8 +344,13 @@ const ImpactTracker = () => {
               {/* Percentage Text - Centered in jar */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div 
-                  className="text-3xl font-light tracking-tight"
-                  style={{ color: 'var(--color-text-primary)' }}
+                  className="text-3xl"
+                  style={{ 
+                    color: 'var(--color-text-primary)',
+                    fontWeight: 500,
+                    letterSpacing: '-0.02em',
+                    lineHeight: '1.05'
+                  }}
                 >
                   {Math.round(animatedJarProgress)}%
                 </div>

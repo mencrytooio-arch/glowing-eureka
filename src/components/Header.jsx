@@ -106,8 +106,11 @@ const Header = () => {
                   e.target.style.display = 'none';
                   if (!e.target.nextSibling) {
                     const textLogo = document.createElement('span');
-                    textLogo.className = 'text-xl font-light tracking-tight';
+                    textLogo.className = 'text-xl';
                     textLogo.style.color = 'var(--color-text-primary)';
+                    textLogo.style.fontWeight = '300';
+                    textLogo.style.letterSpacing = '-0.02em';
+                    textLogo.style.lineHeight = '1.05';
                     textLogo.textContent = 'MenCryToo';
                     e.target.parentElement.appendChild(textLogo);
                   }
@@ -146,11 +149,13 @@ const Header = () => {
           <div className="nav-links-desktop flex items-center space-x-8 sm:space-x-12">
             <Link
               to="/"
-              className="text-sm font-light tracking-wide transition-colors duration-200"
+              className="text-sm transition-colors duration-200"
               style={{
                 color: isActive('/') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
                 borderBottom: isActive('/') ? '1px solid var(--color-accent-primary)' : 'none',
                 paddingBottom: isActive('/') ? '4px' : '0',
+                fontWeight: 400,
+                letterSpacing: '0.04em'
               }}
               onMouseEnter={(e) => {
                 if (!isActive('/')) {
@@ -167,11 +172,13 @@ const Header = () => {
             </Link>
             <Link
               to="/shop"
-              className="text-sm font-light tracking-wide transition-colors duration-200"
+              className="text-sm transition-colors duration-200"
               style={{
                 color: isActive('/shop') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
                 borderBottom: isActive('/shop') ? '1px solid var(--color-accent-primary)' : 'none',
                 paddingBottom: isActive('/shop') ? '4px' : '0',
+                fontWeight: 400,
+                letterSpacing: '0.04em'
               }}
               onMouseEnter={(e) => {
                 if (!isActive('/shop')) {
@@ -188,11 +195,13 @@ const Header = () => {
             </Link>
             <Link
               to="/about"
-              className="text-sm font-light tracking-wide transition-colors duration-200"
+              className="text-sm transition-colors duration-200"
               style={{
                 color: isActive('/about') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
                 borderBottom: isActive('/about') ? '1px solid var(--color-accent-primary)' : 'none',
                 paddingBottom: isActive('/about') ? '4px' : '0',
+                fontWeight: 400,
+                letterSpacing: '0.04em'
               }}
               onMouseEnter={(e) => {
                 if (!isActive('/about')) {
@@ -209,11 +218,13 @@ const Header = () => {
             </Link>
             <Link
               to="/how-we-work"
-              className="text-sm font-light tracking-wide transition-colors duration-200"
+              className="text-sm transition-colors duration-200"
               style={{
                 color: isActive('/how-we-work') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
                 borderBottom: isActive('/how-we-work') ? '1px solid var(--color-accent-primary)' : 'none',
                 paddingBottom: isActive('/how-we-work') ? '4px' : '0',
+                fontWeight: 400,
+                letterSpacing: '0.04em'
               }}
               onMouseEnter={(e) => {
                 if (!isActive('/how-we-work')) {
@@ -230,11 +241,13 @@ const Header = () => {
             </Link>
             <Link
               to="/enquiry-form"
-              className="text-sm font-light tracking-wide transition-colors duration-200"
+              className="text-sm transition-colors duration-200"
               style={{
                 color: isActive('/enquiry-form') ? 'var(--color-accent-primary)' : 'var(--color-text-primary)',
                 borderBottom: isActive('/enquiry-form') ? '1px solid var(--color-accent-primary)' : 'none',
                 paddingBottom: isActive('/enquiry-form') ? '4px' : '0',
+                fontWeight: 400,
+                letterSpacing: '0.04em'
               }}
               aria-current={isActive('/enquiry-form') ? 'page' : undefined}
               onMouseEnter={(e) => {
